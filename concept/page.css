@@ -5,15 +5,45 @@ root for details.
 
 The pages of the concept paper layout of the PHT, the same as the pages of the thesis layout (../thesis/page.css):
 
-- A4, margins 30 mm at the top, 25 mm on the right, 22 mm at the bottom and 35 mm on the left;
-- Liberation Serif, a free font with the metrics of Times New Roman, from fonts/: text 12 pt, line spacing 1.5,
-  justified;
+- A4, margins 30 mm at the top, 25 mm on the right, 25 mm at the bottom and 35 mm on the left;
+- Liberation Sans, a free font with the metrics of Arial, the font of the template, from fonts/: text 12 pt, line
+  spacing 1.5, justified;
+- the parameter `variante` of layout.json: `vorlage` (the default) is the look of the Word template; `klassisch` is
+  the look of earlier works, Liberation Serif with the metrics of Times New Roman and a bottom margin of 22 mm;
 - the footer below a line: the author on the left, "Seite N" on the right, not on the cover page;
 - each chapter (#) follows the text before it with a space of 18 pt, as `kapitelumbruch` is `nein` by default in
   layout.json; with `kapitelumbruch: ja` in the front matter, each chapter starts on a new page;
 - block quotes 0.5 cm indented, 11 pt, single line spacing; the reference list with a hanging indent of 1.25 cm;
 - footnotes at the foot of the page, 10 pt, single line spacing, justified, below a line of 5 cm.
 */
+
+@font-face {
+  font-family: "PHT Sans";
+  font-weight: normal;
+  font-style: normal;
+  src: url("fonts/LiberationSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PHT Sans";
+  font-weight: bold;
+  font-style: normal;
+  src: url("fonts/LiberationSans-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PHT Sans";
+  font-weight: normal;
+  font-style: italic;
+  src: url("fonts/LiberationSans-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PHT Sans";
+  font-weight: bold;
+  font-style: italic;
+  src: url("fonts/LiberationSans-BoldItalic.ttf") format("truetype");
+}
 
 @font-face {
   font-family: "PHT Serif";
@@ -45,7 +75,7 @@ The pages of the concept paper layout of the PHT, the same as the pages of the t
 
 @page {
   size: A4;
-  margin: 30mm 25mm 22mm 35mm;
+  margin: 30mm 25mm 25mm 35mm;
 
   @bottom-left {
     content: var(--field-author);
@@ -53,7 +83,7 @@ The pages of the concept paper layout of the PHT, the same as the pages of the t
     margin-top: 6mm;
     padding-top: 1.5mm;
     border-top: 0.75pt solid #111;
-    font-family: "PHT Serif", "Liberation Serif", "Times New Roman", serif;
+    font-family: "PHT Sans", "Liberation Sans", Arial, sans-serif;
     font-size: 9pt;
     color: #111;
   }
@@ -71,7 +101,7 @@ The pages of the concept paper layout of the PHT, the same as the pages of the t
     margin-top: 6mm;
     padding-top: 1.5mm;
     border-top: 0.75pt solid #111;
-    font-family: "PHT Serif", "Liberation Serif", "Times New Roman", serif;
+    font-family: "PHT Sans", "Liberation Sans", Arial, sans-serif;
     font-size: 9pt;
     color: #111;
     text-align: right;
@@ -102,8 +132,30 @@ The pages of the concept paper layout of the PHT, the same as the pages of the t
   }
 }
 
-html {
+/* The variant "klassisch": a font with serifs, and the pages of the text as the named page "klassisch" with a bottom
+   margin of 22 mm; the rule of the named page starts at the text, because Paged.js applies it without the body. */
+@page klassisch {
+  margin-bottom: 22mm;
+
+  @bottom-left {
+    font-family: "PHT Serif", "Liberation Serif", "Times New Roman", serif;
+  }
+
+  @bottom-right {
+    font-family: "PHT Serif", "Liberation Serif", "Times New Roman", serif;
+  }
+}
+
+main.paper-text[data-field-variante="klassisch"] {
+  page: klassisch;
+}
+
+body[data-field-variante="klassisch"] {
   font-family: "PHT Serif", "Liberation Serif", "Times New Roman", serif;
+}
+
+html {
+  font-family: "PHT Sans", "Liberation Sans", Arial, sans-serif;
   font-size: 12pt;
   line-height: 1.5;
   color: #111;
@@ -274,10 +326,15 @@ h6 {
 }
 
 /* The text of a heading starts 10 mm after the start of its number. The renderer writes a space after the number,
-   and the negative margin takes the width of that space back. */
+   and the negative margin takes the width of that space back: 0.278 em in Liberation Sans, 0.25 em in Liberation
+   Serif. */
 .heading-number {
   display: inline-block;
   min-width: 10mm;
+  margin-right: -0.278em;
+}
+
+body[data-field-variante="klassisch"] .heading-number {
   margin-right: -0.25em;
 }
 

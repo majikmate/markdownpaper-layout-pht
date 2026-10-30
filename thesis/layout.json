@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/nimblescape/markdownpaper-vscode/main/schemas/layout.schema.json",
   "format": "nimblescape-layout 1.0.0",
   "instructions": "npx -y @nimblescape/markdownpaper instructions layout",
   "name": "PHT Abschlussarbeit",
@@ -49,7 +50,13 @@
     },
     "kapitelumbruch": {
       "description": "ja: jedes Kapitel (#) beginnt auf einer neuen Seite; nein: ein Kapitel folgt dem Text davor, mit Abstand.",
-      "default": "ja"
+      "default": "ja",
+      "values": ["ja", "nein"]
+    },
+    "variante": {
+      "description": "Das Aussehen der Seiten: vorlage wie die Word-Vorlage der PHT (Arial, unterer Rand 25 mm); klassisch wie frühere Arbeiten (Times New Roman, unterer Rand 22 mm).",
+      "default": "vorlage",
+      "values": ["vorlage", "klassisch"]
     }
   },
   "headings": {

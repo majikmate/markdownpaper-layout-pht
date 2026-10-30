@@ -12,14 +12,22 @@ the PDF of a Markdown document in a layout.
 
 Both layouts have the look of the PHT template: a cover page with the logo of
 the PHT, the type of the work, the title, the author, the degree and the
-supervisor; A4 with margins of 30 mm, 25 mm, 22 mm and 35 mm; Liberation Serif
-in 12 pt with a line spacing of 1.5; a footer with the author and "Seite N"
-below a line; footnotes at the foot of the page; and the citation style of the
-PHT. The fields of the front matter are in German, as in the template:
-`title`, `subtitle`, `type`, `author`, `grad`, `betreuerin`,
-`matrikelnummer`, `studium`, `lehrveranstaltung`, `date` and
-`kapitelumbruch`. `layout.json` of each folder describes them, and the name of
+supervisor; A4 with margins of 30 mm, 25 mm, 25 mm and 35 mm; Liberation Sans,
+with the metrics of Arial, in 12 pt with a line spacing of 1.5; a footer with
+the author and "Seite N" below a line; footnotes at the foot of the page; and
+the citation style of the PHT. The fields of the front matter are in German, as
+in the template: `title`, `subtitle`, `type`, `author`, `grad`, `betreuerin`,
+`matrikelnummer`, `studium`, `lehrveranstaltung`, `date`, `kapitelumbruch`
+and `variante`. `layout.json` of each folder describes them, and the name of
 the PDF file is `{{matrikelnummer}}_{{author}}_{{lehrveranstaltung}}_{{type}}`.
+
+Both layouts have two parameters, fields of `layout.json` with a list of
+names to choose from:
+
+| Field | Names | What it changes |
+| --- | --- | --- |
+| `variante` | `vorlage` (default), `klassisch` | `vorlage` is the look of the Word template of the PHT. `klassisch` is the look of earlier works made with the skill `markdown-to-paper` of `scalarion/transcribe`: Liberation Serif, with the metrics of Times New Roman, and a bottom margin of 22 mm. |
+| `kapitelumbruch` | `ja`, `nein` | `ja`: each chapter (`#`) starts on a new page; `nein`: a chapter follows the text before it, with a space of 18 pt. |
 
 The two layouts differ only in three defaults: the type of the work
 (`Bachelorarbeit` or `Konzeptpapier`), `kapitelumbruch` (`ja` or `nein`), and
@@ -52,13 +60,10 @@ the pages was ported from the skill `markdown-to-paper` of the repository
 | `APA7-V2_0.pdf`, "Zitationsrichtlinien für Abschlussarbeiten an der PHT, Zitation nach APA 7", version 2.0 | the page "Bachelorarbeit" of the PHT, <https://ph-tirol.ac.at/bachelorarbeit/> | `pht-apa7.csl` |
 | The Word template of the concept paper (Konzeptpapier) of the bachelor study | the service portal of the PHT, <https://service.ph-tirol.at>, after the sign-in with the Office 365 account, as the guide "BA-Antrag Schritt für Schritt" of the PHT says | the chapter headings of `concept/document.md` and the heading of its reference list |
 
-The layouts differ from the Word template in two points, which they took over
-from the skill:
-
-- the font is Liberation Serif, with the metrics of Times New Roman; the
-  template uses Arial: text 12 pt, headings 16 pt, 14 pt and 12 pt;
-- the bottom margin is 22 mm, with the footer inside it; the template has a
-  bottom margin of 25 mm and the footer 12.5 mm from the edge of the page.
+The variant `vorlage` follows the Word template: Liberation Sans for Arial
+(text 12 pt, headings 16 pt, 14 pt and 12 pt) and a bottom margin of 25 mm
+with the footer inside it. The variant `klassisch` keeps the font and the
+bottom margin of the skill.
 
 ## The citation style of the PHT
 
@@ -92,10 +97,11 @@ The content of this repository is licensed under the
 CC BY-SA 3.0 allows. Fonts and logos with licenses of their own keep them and
 are listed here when a layout holds them:
 
-- `fonts/LiberationSerif-*.ttf` in each layout: Liberation Serif, copyright
-  (c) 2010 Google Corporation and (c) 2012 Red Hat, Inc., under the SIL Open
-  Font License 1.1, see `fonts/LICENSE-LiberationSerif.txt`. It has the
-  metrics of Times New Roman, the font of the PHT template.
+- `fonts/LiberationSans-*.ttf` and `fonts/LiberationSerif-*.ttf` in each
+  layout: Liberation Sans and Liberation Serif 2.1.5, copyright (c) 2010 Google
+  Corporation and (c) 2012 Red Hat, Inc., under the SIL Open Font License 1.1,
+  see `fonts/LICENSE-Liberation.txt`. They have the metrics of Arial, the font
+  of the PHT template, and of Times New Roman.
 - `images/pht-logo.png` in each layout: the logo of the Pädagogische
   Hochschule Tirol. It is not under CC BY-SA 4.0; the PHT holds its rights.
   It is here only for the cover pages of works at the PHT.
