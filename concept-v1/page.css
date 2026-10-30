@@ -470,8 +470,10 @@ th {
   font-weight: bold;
 }
 
-/* Footnotes at the foot of the page (PHT template): 10 pt, single line spacing, justified. */
-.footnote {
+/* Footnotes at the foot of the page (PHT template): 10 pt, single line spacing, justified. Paged.js copies the
+   classes of a footnote to its call in the text, so the rules of the footnote text leave out the call: the number in
+   the text keeps the size of its text. */
+.footnote:not([data-footnote-call]) {
   font-size: 10pt;
   line-height: 1.15;
   text-align: justify;
