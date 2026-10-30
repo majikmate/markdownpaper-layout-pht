@@ -11,8 +11,9 @@ The pages of the thesis layout of the PHT. The parameter `variante` of layout.js
 - Liberation Sans, a free font with the metrics of Arial, the font of the template, from fonts/: text 12 pt, line
   spacing 1.5, justified, 6 pt before and after a paragraph;
 - the cover page of the template with the logo, the type, the title and the table of the facts; in version 4 the title
-  and the subtitle have a single line spacing instead of 1.5, the date stays at its place, and all spaces from the
-  logo to the date shrink by the same factor when the title, the subtitle or a value has more than one line;
+  and the subtitle have a single line spacing instead of 1.5 with the line in the middle between them, the date stays
+  at its place, and all spaces from the logo to the date shrink by the same factor when the title, the subtitle or a
+  value has more than one line;
 - no footer on the pages before the first chapter; the footer below a line, the author on the left, "Seite N" on the
   right, from 1 at the first chapter; the appendix part with its own numbers, "Anhang I", "Anhang II", …;
 - the headings 16, 14 and 12 pt bold with the hanging indents of the template; a title without a number, such as
@@ -784,11 +785,11 @@ main.paper-text[data-field-variante="vorlage"] > .paper-appendix {
   position: relative;
   box-sizing: border-box;
   width: 210mm;
-  /* The top margin, the two spaces around the type, the space below the title and above the subtitle, the lines of the
+  /* The top margin, the two spaces around the type, the line between the title and the subtitle, the lines of the
      title and the subtitle at a single line spacing, the lines of the type, the labels, the author, the degree, the
      three rows and the date at a line spacing of 1.5, the spaces from the subtitle to the date, and half a pixel, so
      that the rounding of the browser does not shrink the spaces of a cover with one line for each text. */
-  height: calc(65.017mm + 2 * 36pt + 1pt + 0.5pt + 6pt + 1.149902 * (20pt + 14pt)
+  height: calc(65.017mm + 2 * 36pt + 7.5pt + 1.149902 * (20pt + 14pt)
     + 1.724853 * (36pt + 2 * 12pt + 18pt + 22pt + 3 * 12pt + 12pt)
     + 36pt + 2 * 12pt + 36pt + 36pt + 2 * 6pt + 32.698pt + 0.375pt);
   min-height: 0;
@@ -817,10 +818,10 @@ main.paper-text[data-field-variante="vorlage"] > .paper-appendix {
   flex: 0 1 36pt;
 }
 
-/* Without a subtitle, the space begins at the line below the title. Paged.js rewrites a selector with "+" and loses
+/* Without a subtitle, the space begins at the line below the title, with the space below the line. Paged.js rewrites a selector with "+" and loses
    its weight, so the selectors of the cover use none. */
 .paper-template-cover[data-field-variante="vorlage"] .pht-cover:not(:has(.pht-subtitle)) > .pht-gap-title {
-  flex-basis: calc(6pt + 36pt);
+  flex-basis: calc((7pt + 0.211914 * 20pt - 0.25 * 14pt) / 2 + 36pt);
 }
 
 .paper-template-cover[data-field-variante="vorlage"] .pht-gap-label {
@@ -917,16 +918,18 @@ main.paper-text[data-field-variante="vorlage"] > .paper-appendix {
   margin: 0;
 }
 
-/* The line below the title: 1 pt below the line of the title, 0.5 pt thick, 6 pt above the subtitle. */
+/* The line below the title, 0.5 pt thick, lies in the middle between the baseline of the title and the top of the
+   capitals of the subtitle (0.211914 em below the baseline of Liberation Sans and 0.25 em below the top of a single
+   line); the line and the spaces around it keep the 7.5 pt of the template (1 pt, the line, 6 pt). */
 .paper-template-cover[data-field-variante="vorlage"] .pht-title-rule {
-  margin: 1pt 0 6pt 0;
+  margin: calc((7pt - 0.211914 * 20pt + 0.25 * 14pt) / 2) 0 calc((7pt + 0.211914 * 20pt - 0.25 * 14pt) / 2) 0;
   border-top: 0.5pt solid #000;
 }
 
 .paper-template-cover[data-field-variante="vorlage"] p.pht-subtitle {
   font-size: 14pt;
   font-weight: bold;
-  margin: 6pt 0 0 0;
+  margin: 0;
 }
 
 .paper-template-cover[data-field-variante="vorlage"] p.pht-label {
