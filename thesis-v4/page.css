@@ -776,7 +776,8 @@ main.paper-text[data-field-variante="vorlage"] > .paper-appendix {
    and the subtitle. The cover is as high as this cover with one line for each text, so the date stays at its place: when the title, the subtitle or a value has more lines, all
    spaces from the subtitle to the date shrink by the same factor. The elements "pht-gap" are these spaces; each holds
    the space of the template before the next text and the added space of the line spacing below the text before it,
-   which the negative bottom margin of that text gives to the gap. The two spaces above the title keep their size. */
+   which the negative bottom margin of that text gives to the gap. The two spaces above the title keep their size, and
+   the rows of the table stay at least as far apart as the lines of a long value. */
 .paper-template-cover[data-field-variante="vorlage"] .pht-cover {
   display: flex;
   flex-direction: column;
@@ -828,15 +829,19 @@ main.paper-text[data-field-variante="vorlage"] > .paper-appendix {
   flex: 0 1 calc(0.574951 * 22pt + 36pt);
 }
 
+/* The space between two rows, and between the programme and the date, stays at least the space between two lines of
+   a long value, so the rows never come closer than the lines of a value. The other spaces then shrink more. */
 .paper-template-cover[data-field-variante="vorlage"] table.pht-meta tr.pht-gap-row {
   display: block;
   flex: 0 1 calc(0.574951 * 12pt + 6pt);
+  min-height: calc(0.574951 * 12pt);
   margin: 0;
 }
 
 /* An empty paragraph of 1.5 lines lies between the programme and the date. */
 .paper-template-cover[data-field-variante="vorlage"] .pht-gap-date {
   flex: 0 1 calc(0.574951 * 12pt + 32.698pt);
+  min-height: calc(0.574951 * 12pt);
 }
 
 .paper-template-cover[data-field-variante="vorlage"] .pht-cover > :not(.pht-gap),
