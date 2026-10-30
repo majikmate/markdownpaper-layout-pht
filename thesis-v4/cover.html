@@ -5,14 +5,14 @@ root for details.
 
 The cover page of the PHT: the logo, the type of the work, the title and the subtitle, the author, the degree, the
 supervisor, the student ID, the programme and the date, from the fields of the front matter. The empty elements
-"pht-gap" are the spaces of the variant "vorlage": the two spaces above the title keep their size, and all spaces
-from the subtitle to the date shrink by the same factor when the cover is too long for one page.
+"pht-gap" are the spaces of the variant "vorlage": all spaces from the bottom of the logo to the date shrink by the
+same factor when the title, the subtitle or a value has more than one line, so the date stays at its place.
 -->
 <section class="pht-cover">
   <div class="pht-logo"><img src="images/pht-logo.png" alt="Pädagogische Hochschule Tirol"></div>
-  <div class="pht-gap pht-gap-top"></div>
+  <div class="pht-gap pht-gap-logo"></div>
   {{#type}}<p class="pht-type">{{type}}</p>{{/type}}
-  <div class="pht-gap pht-gap-top"></div>
+  <div class="pht-gap pht-gap-type"></div>
   <div class="pht-title-block">
     <p class="pht-title">{{title}}</p>
     <div class="pht-title-rule"></div>

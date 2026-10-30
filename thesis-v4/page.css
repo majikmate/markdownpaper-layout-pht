@@ -12,7 +12,7 @@ The pages of the thesis layout of the PHT. The parameter `variante` of layout.js
   spacing 1.5, justified, 6 pt before and after a paragraph;
 - the cover page of the template with the logo, the type, the title and the table of the facts; in version 4 the title
   and the subtitle have a line spacing of 1.1 instead of 1.5, the date stays at its place, and all spaces from the
-  subtitle to the date shrink by the same factor when the title, the subtitle or a value has more than one line;
+  logo to the date shrink by the same factor when the title, the subtitle or a value has more than one line;
 - no footer on the pages before the first chapter; the footer below a line, the author on the left, "Seite N" on the
   right, from 1 at the first chapter; the appendix part with its own numbers, "Anhang I", "Anhang II", …;
 - the headings 16, 14 and 12 pt bold with the hanging indents of the template; a title without a number, such as
@@ -773,18 +773,18 @@ main.paper-text[data-field-variante="vorlage"] > .paper-appendix {
    top margin of 65 mm the type of the work (36 pt), the title (20 pt) with a line below it, the subtitle (14 pt), the
    author (18 pt), the degree (22 pt), the supervisor, the student ID and the programme with a tab at 55 mm, and the
    date, each paragraph with the spacing of the template, except the line spacing of 1.1 instead of 1.5 of the title
-   and the subtitle. The cover is as high as this cover with one line for each text, so the date stays at its place: when the title, the subtitle or a value has more lines, all
-   spaces from the subtitle to the date shrink by the same factor. The elements "pht-gap" are these spaces; each holds
-   the space of the template before the next text and the added space of the line spacing below the text before it,
-   which the negative bottom margin of that text gives to the gap. The two spaces above the title keep their size, and
-   the rows of the table stay at least as far apart as the lines of a long value. */
+   and the subtitle. The cover is as high as this cover with one line for each text, so the date stays at its place:
+   when the title, the subtitle or a value has more lines, all spaces from the bottom of the logo to the date shrink by
+   the same factor. The elements "pht-gap" are these spaces; each holds the space of the template before the next text
+   and the added space of the line spacing below the text before it, which the negative bottom margin of that text
+   gives to the gap. The rows of the table stay at least as far apart as the lines of a long value. */
 .paper-template-cover[data-field-variante="vorlage"] .pht-cover {
   display: flex;
   flex-direction: column;
   position: relative;
   box-sizing: border-box;
   width: 210mm;
-  /* The top margin, the two spaces above the title, the space below the title and above the subtitle, the lines of the
+  /* The top margin, the two spaces around the type, the space below the title and above the subtitle, the lines of the
      title and the subtitle at a line spacing of 1.1, the lines of the type, the labels, the author, the degree, the
      three rows and the date at a line spacing of 1.5, the spaces from the subtitle to the date, and half a pixel, so
      that the rounding of the browser does not shrink the spaces of a cover with one line for each text. */
@@ -792,7 +792,8 @@ main.paper-text[data-field-variante="vorlage"] > .paper-appendix {
     + 1.724853 * (36pt + 2 * 12pt + 18pt + 22pt + 3 * 12pt + 12pt)
     + 36pt + 2 * 12pt + 36pt + 36pt + 2 * 6pt + 32.698pt + 0.375pt);
   min-height: 0;
-  padding: 65.017mm 24.985mm 0 35.019mm;
+  /* The text begins at the bottom of the logo; the rest of the top margin is in the first gap. */
+  padding: calc(19.845mm + 35.165mm) 24.985mm 0 35.019mm;
   color: #000;
 }
 
@@ -802,11 +803,16 @@ main.paper-text[data-field-variante="vorlage"] > .paper-appendix {
   margin: 0;
 }
 
-.paper-template-cover[data-field-variante="vorlage"] .pht-gap-top {
-  flex: 0 0 36pt;
+/* The space from the bottom of the logo to the top margin of 65 mm, and the empty line of 36 pt. */
+.paper-template-cover[data-field-variante="vorlage"] .pht-gap-logo {
+  flex: 0 1 calc(65.017mm - 19.845mm - 35.165mm + 36pt);
 }
 
 /* The added space of a line spacing of 1.5 is 0.574951 of the size of the font, of a line spacing of 1.1 0.114990. */
+.paper-template-cover[data-field-variante="vorlage"] .pht-gap-type {
+  flex: 0 1 calc(0.574951 * 36pt + 36pt);
+}
+
 .paper-template-cover[data-field-variante="vorlage"] .pht-gap-title {
   flex: 0 1 calc(0.114990 * 14pt + 36pt);
 }
@@ -849,7 +855,8 @@ main.paper-text[data-field-variante="vorlage"] > .paper-appendix {
   flex: none;
 }
 
-/* The texts from the subtitle to the programme give the added space of their last line to the gap below them. */
+/* The texts from the type to the programme give the added space of their last line to the gap below them. */
+.paper-template-cover[data-field-variante="vorlage"] .pht-cover > p.pht-type,
 .paper-template-cover[data-field-variante="vorlage"] .pht-cover > p.pht-label,
 .paper-template-cover[data-field-variante="vorlage"] .pht-cover > p.pht-author,
 .paper-template-cover[data-field-variante="vorlage"] .pht-cover > p.pht-degree,
