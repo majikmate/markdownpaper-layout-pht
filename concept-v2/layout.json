@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/nimblescape/markdownpaper-vscode/main/schemas/layout.schema.json",
   "format": "nimblescape-layout 1.0.0",
   "instructions": "npx -y @nimblescape/markdownpaper instructions layout",
-  "name": "PHT Konzeptpapier",
+  "name": "PHT Konzeptpapier v2",
   "language": "de-AT",
   "citationStyle": "pht-apa7.csl",
   "stylesheets": ["page.css"],

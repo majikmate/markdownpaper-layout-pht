@@ -10,7 +10,7 @@ The pages of the concept paper layout of the PHT. The parameter `variante` of la
   right, 27.5 mm at the bottom and 25 mm on the left; Carlito, a free font with the metrics of Calibri, 11 pt, line
   spacing 1.15, 10 pt after a paragraph, justified; numbered headings of 14 pt; "Seite N von M" at the bottom right.
   The rules of this variant are at the end of the file.
-- `klassisch`: the look of earlier works, the pages of the thesis layout (../thesis/page.css) with Liberation Serif,
+- `klassisch`: the look of earlier works, the pages of the thesis layout (../thesis-v2/page.css) with Liberation Serif,
   a free font with the metrics of Times New Roman: A4, margins 30 mm at the top, 25 mm on the right, 22 mm at the
   bottom and 35 mm on the left; text 12 pt, line spacing 1.5, justified; the footer below a line, the author on the
   left and "Seite N" on the right; block quotes 0.5 cm indented, 11 pt, single line spacing; the reference list with
