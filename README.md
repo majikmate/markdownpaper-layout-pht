@@ -46,8 +46,9 @@ the heading "Erste Auswahl an (Grundlagen-)Literatur und Quellen" of the
 concept template of the PHT. The thesis layout also numbers the reference list
 and the lists of figures, tables and listings as chapters, and leaves the
 chapters before the first chapter out of the table of contents, as the Word
-template does. Each folder holds its own copies of the files, because the
-paths of a layout stay inside its folder.
+template does. A hint (`> [!NOTE]`) is the light blue box of the concept
+template in both layouts, also in the look `klassisch`. Each folder holds its
+own copies of the files, because the paths of a layout stay inside its folder.
 
 ### How close the pages are to Word
 
@@ -143,9 +144,26 @@ PHT:
 - the German terms of the guide: `o. D.` for a source without a year,
   `S. 51 – 70` with an en dash between no-break spaces, `Abgerufen am … von …`;
 - the short labels of all places in a source: `S.`, `Kap.`, `Abschn.`, `Abs.`,
-  `Abb.`, `Tab.`, `H.`, `Fn.`, `T.`, `Anh.`;
+  `Abb.`, `Tab.`, `H.`, `Fn.`, `T.`, `Anh.`, and `Art.` and `§` in a law, each
+  with a no-break space before the place (`S. 81`);
 - the day before the month: `(2018, 1. Oktober)`;
-- the day of the access whenever the metadata of a source has one.
+- the day of the access whenever the metadata of a source has one;
+- a law (`legislation`) or an ordinance (`regulation`) in the form of the
+  guide: `Lehrplan der Volksschule. BGBl. Nr. 134/1963 in der Fassung BGBl. II
+  Nr. 303/2012 vom 13. September 2012.` The fields of CSL JSON:
+
+  | Field | Content | Example |
+  | --- | --- | --- |
+  | `title` | The title of the law or the ordinance | `Lehrplan der Volksschule` |
+  | `container-title` | The gazette of the first publication | `BGBl.`, `BGBl. I`, `BGBl. II`, `ABl. L` |
+  | `number` | The number of the first publication, as the gazette writes it | `Nr. 134/1963` |
+  | `references` | The version that the text cites, without "in der Fassung"; left out for the first version | `BGBl. II Nr. 303/2012` |
+  | `issued` | The day of that version, or of the law without a version, with day, month and year | `{"date-parts":[[2012,9,13]]}` |
+
+  The citation names the title and the year of `issued`:
+  `(Lehrplan der Volksschule, 2012)`, `(Schulorganisationsgesetz, 1962, § 65)`.
+  Zotero writes these fields for an item of the type "Statute": "Code",
+  "Public Law Number", "History" and "Date Enacted".
 
 The names of the months come from the CSL locale `de-AT` of Markdown Paper, so
 January is `Jänner`.
