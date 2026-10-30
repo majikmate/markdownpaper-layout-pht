@@ -1,4 +1,4 @@
-# nimblescape-markdownpaper-layout-pht
+# markdownpaper-layout-pht
 
 The layouts of the Pädagogische Hochschule Tirol (PHT) for
 [nimblescape Markdown Paper](https://github.com/nimblescape/markdownpaper-vscode),
