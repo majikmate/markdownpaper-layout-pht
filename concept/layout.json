@@ -54,7 +54,7 @@
       "values": ["ja", "nein"]
     },
     "variante": {
-      "description": "Das Aussehen der Seiten: vorlage wie die Word-Vorlage der PHT (Arial, unterer Rand 25 mm); klassisch wie frühere Arbeiten (Times New Roman, unterer Rand 22 mm).",
+      "description": "Das Aussehen der Seiten: vorlage wie die Word-Vorlage für Konzeptpapiere der PHT (Deckblatt mit Tabellen, Calibri 11 pt); klassisch wie frühere Arbeiten (Times New Roman 12 pt, unterer Rand 22 mm).",
       "default": "vorlage",
       "values": ["vorlage", "klassisch"]
     }
@@ -72,11 +72,15 @@
   },
   "headings": {
     "numbered": true,
-    "depth": 3
+    "depth": 3,
+    "numberedSections": ["BIB"]
   },
   "contents": {
     "depth": 3
   },
   "hyphenate": true,
+  "references": {
+    "hyphenate": true
+  },
   "pdfName": "{{matrikelnummer}}_{{author}}_{{lehrveranstaltung}}_{{type}}"
 }

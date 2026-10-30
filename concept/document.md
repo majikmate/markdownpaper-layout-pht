@@ -1,13 +1,13 @@
 # Arbeitstitel
 
-Der Titel und der Untertitel der Arbeit.
+Der Titel der Arbeit, mit dem Bezug zum Berufsfeld Schule oder zum Unterricht.
 
 # Persönliche und berufsfeldbezogene Relevanz des Themas
 
 Warum das Thema für die Verfasserin oder den Verfasser und für das Berufsfeld
 wichtig ist.
 
-# Kurzbeschreibung der fachlichen und wissenschaftlichen Ausgangslage
+# Kurzbeschreibung der (fachl. und wissenschaftl.) Ausgangslage
 
 Der Stand der Forschung und die Begriffe der Arbeit.
 

@@ -3,18 +3,21 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 Licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. See LICENSE in the repository
 root for details.
 
-The pages of the concept paper layout of the PHT, the same as the pages of the thesis layout (../thesis/page.css):
+The pages of the concept paper layout of the PHT. The parameter `variante` of layout.json chooses one of two looks:
 
-- A4, margins 30 mm at the top, 25 mm on the right, 25 mm at the bottom and 35 mm on the left;
-- Liberation Sans, a free font with the metrics of Arial, the font of the template, from fonts/: text 12 pt, line
-  spacing 1.5, justified;
-- the parameter `variante` of layout.json: `vorlage` (the default) is the look of the Word template; `klassisch` is
-  the look of earlier works, Liberation Serif with the metrics of Times New Roman and a bottom margin of 22 mm;
-- the footer below a line: the author on the left, "Seite N" on the right, not on the cover page;
-- each chapter (#) follows the text before it with a space of 18 pt, as `kapitelumbruch` is `nein` by default in
-  layout.json; with `kapitelumbruch: ja` in the front matter, each chapter starts on a new page;
-- block quotes 0.5 cm indented, 11 pt, single line spacing; the reference list with a hanging indent of 1.25 cm;
-- footnotes at the foot of the page, 10 pt, single line spacing, justified, below a line of 5 cm.
+- `vorlage` (the default): the Word template "Vorlage für Konzeptpapier – Sekundarpädagogik" of the PHT, as Word shows
+  it, measured on a PDF of Word: its cover page with two tables; A4 with margins of 29 mm at the top, 20 mm on the
+  right, 27.5 mm at the bottom and 25 mm on the left; Carlito, a free font with the metrics of Calibri, 11 pt, line
+  spacing 1.15, 10 pt after a paragraph, justified; numbered headings of 14 pt; "Seite N von M" at the bottom right.
+  The rules of this variant are at the end of the file.
+- `klassisch`: the look of earlier works, the pages of the thesis layout (../thesis/page.css) with Liberation Serif,
+  a free font with the metrics of Times New Roman: A4, margins 30 mm at the top, 25 mm on the right, 22 mm at the
+  bottom and 35 mm on the left; text 12 pt, line spacing 1.5, justified; the footer below a line, the author on the
+  left and "Seite N" on the right; block quotes 0.5 cm indented, 11 pt, single line spacing; the reference list with
+  a hanging indent of 1.25 cm; footnotes at the foot of the page, 10 pt, below a line of 5 cm.
+
+Each chapter (#) follows the text before it, as `kapitelumbruch` is `nein` by default in layout.json; with
+`kapitelumbruch: ja` in the front matter, each chapter starts on a new page.
 */
 
 @font-face {
@@ -71,6 +74,34 @@ The pages of the concept paper layout of the PHT, the same as the pages of the t
   font-weight: bold;
   font-style: italic;
   src: url("fonts/LiberationSerif-BoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PHT Carlito";
+  font-weight: normal;
+  font-style: normal;
+  src: url("fonts/Carlito-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PHT Carlito";
+  font-weight: bold;
+  font-style: normal;
+  src: url("fonts/Carlito-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PHT Carlito";
+  font-weight: normal;
+  font-style: italic;
+  src: url("fonts/Carlito-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PHT Carlito";
+  font-weight: bold;
+  font-style: italic;
+  src: url("fonts/Carlito-BoldItalic.ttf") format("truetype");
 }
 
 @page {
@@ -583,4 +614,301 @@ h1.section-apx + h2.appendix {
 
 .appendix-label {
   display: block;
+}
+
+/* The variant "vorlage": the Word template "Vorlage für Konzeptpapier – Sekundarpädagogik" of the PHT, as Word shows
+   it. The template names the font GT Eesti Display, which is no free font; Word shows Calibri in its place, and the
+   layout uses Carlito, a free font with the metrics of Calibri. The values of the cover page and the footer are in
+   Arial (Liberation Sans). All lengths are those of the template: the margins of its two sections, the line spacing
+   of 1.15 lines and the spacing of 10 pt after a paragraph, and the headings of 14 pt with a line spacing of 1.5 lines.
+   Word puts the text at the top of a line and the added space of the line spacing below it; the browser puts half of
+   it above the text, so the text moves up by the difference (--pht-lift). */
+@page konzept {
+  margin: 28.98mm 19.99mm 27.52mm 24.99mm;
+
+  @bottom-left {
+    content: none;
+    border-top: none;
+  }
+
+  @bottom-center {
+    content: none;
+    border-top: none;
+  }
+
+  @bottom-right {
+    content: "Seite " counter(page) " von " counter(pages);
+    vertical-align: top;
+    margin-top: 0;
+    padding-top: var(--pht-footer-top, 7.73mm);
+    padding-right: 5.01mm;
+    border-top: none;
+    font-family: "PHT Sans", "Liberation Sans", Arial, sans-serif;
+    font-size: 10pt;
+    line-height: 11.49pt;
+    color: #000;
+    text-align: right;
+  }
+}
+
+/* The cover page has no margins: the cover places each part where the template has it. */
+@page konzept-deckblatt {
+  margin: 0;
+
+  @bottom-left {
+    content: none;
+    border-top: none;
+  }
+
+  @bottom-center {
+    content: none;
+    border-top: none;
+  }
+
+  @bottom-right {
+    content: none;
+    border-top: none;
+  }
+}
+
+.paper-template-cover[data-field-variante="vorlage"] {
+  page: konzept-deckblatt;
+}
+
+main.paper-text[data-field-variante="vorlage"] {
+  page: konzept;
+}
+
+.paper-template-cover[data-field-variante="vorlage"] .pht-cover,
+.paper-template-cover[data-field-variante="klassisch"] .pht-concept-cover {
+  display: none;
+}
+
+/* The cover page of the variant "vorlage". Each part has the place that it has in the PDF of Word. A line of text is
+   placed by its baseline: a text with "line-height: 0" has its baseline 0.3418 em (Carlito) or 0.3467 em (Liberation
+   Sans) below its top, half of the ascent minus the descent of the font. */
+.pht-concept-cover {
+  position: relative;
+  width: 210mm;
+  height: 296mm;
+  font-family: "PHT Carlito", Carlito, Calibri, sans-serif;
+  font-kerning: none;
+  font-variant-ligatures: none;
+  color: #000;
+}
+
+.pht-concept-cover > * {
+  position: absolute;
+  margin: 0;
+}
+
+.pht-concept-logo {
+  left: 133.26mm;
+  top: 12.51mm;
+  width: 51.74mm;
+  height: 16.1mm;
+}
+
+.pht-concept-logo img {
+  display: block;
+  width: 51.74mm;
+  height: 16.1mm;
+}
+
+/* The style "Title" of the template: 20 pt, bold, 0.5 pt narrower spacing of the characters. Word sets 20 pt as
+   19.92 pt. */
+p.pht-concept-heading {
+  left: 25.01mm;
+  width: 159.98mm;
+  top: calc(66.55mm - 0.3418em);
+  font-size: 19.92pt;
+  font-weight: bold;
+  letter-spacing: -0.5pt;
+  line-height: 0;
+  color: #084557;
+  text-align: center;
+}
+
+/* The two tables: lines of 0.169 mm, the column line at 42.42 mm, rows of 13.12 mm. */
+table.pht-concept-table,
+table.pht-concept-table tbody,
+table.pht-concept-table tr,
+table.pht-concept-table td {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+table.pht-concept-table {
+  left: 24.977mm;
+  width: 160.02mm;
+  font-size: 11pt;
+  line-height: 0;
+}
+
+table.pht-concept-student {
+  top: 81.28mm;
+}
+
+table.pht-concept-supervisor {
+  top: 147.066mm;
+}
+
+table.pht-concept-table tr {
+  position: relative;
+  box-sizing: border-box;
+  height: 13.123mm;
+  border: 0.169mm solid #000;
+  border-bottom: none;
+}
+
+table.pht-concept-table tr:last-child {
+  height: 13.292mm;
+  border-bottom: 0.169mm solid #000;
+}
+
+table.pht-concept-supervisor tr:last-child {
+  height: 13.123mm;
+}
+
+table.pht-concept-table td {
+  position: absolute;
+  top: 0;
+  box-sizing: border-box;
+}
+
+table.pht-concept-table td.pht-concept-key {
+  left: 0;
+  width: 42.418mm;
+  padding: calc(9.911mm - 0.3418em) 0 0 1.865mm;
+  border-right: 0.169mm solid #000;
+  font-weight: bold;
+  color: #084557;
+}
+
+table.pht-concept-table td.pht-concept-value {
+  left: 42.418mm;
+  right: 0;
+  padding: calc(9.991mm - 0.3467em) 0 0 1.866mm;
+  font-family: "PHT Sans", "Liberation Sans", Arial, sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+table.pht-concept-supervisor td.pht-concept-key {
+  padding-top: calc(9.825mm - 0.3418em);
+}
+
+table.pht-concept-supervisor td.pht-concept-value {
+  padding-top: calc(9.995mm - 0.3467em);
+}
+
+p.pht-concept-footer {
+  left: 25.01mm;
+  width: 159.98mm;
+  top: calc(283.63mm - 0.3418em);
+  font-size: 9pt;
+  line-height: 0;
+  text-align: center;
+}
+
+/* The text of the variant "vorlage". Word puts the text at the top of a line and the added space of the line spacing
+   below it; the browser puts half of that space above the text, so the text moves up by that half: 1.006 pt for the
+   text, 4.27 pt for a heading of 14 pt, 3.66 pt for a heading of 12 pt. Word uses the larger of the space after a
+   paragraph and the space before the next, as the margins of CSS do. Word shrinks the spaces of a justified line by
+   up to a quarter to fit one more word or syllable; the negative word spacing does the same. */
+body[data-field-variante="vorlage"] {
+  /* The browser puts a line on the whole pixel (1/96 in) above it; half a pixel lower puts it on the nearest. */
+  --pht-half-pixel: 0.375pt;
+  font-family: "PHT Carlito", Carlito, Calibri, sans-serif;
+  /* Word neither kerns the text of the template nor joins letters such as "ft" into ligatures. */
+  font-kerning: none;
+  font-variant-ligatures: none;
+  font-size: 11pt;
+  line-height: 15.44pt;
+  color: #000;
+}
+
+body[data-field-variante="vorlage"] main.paper-text p,
+body[data-field-variante="vorlage"] main.paper-text li {
+  position: relative;
+  top: calc(-1.006pt + var(--pht-half-pixel));
+  margin: 0 0 10pt 0;
+  text-align: justify;
+  word-spacing: var(--pht-space-shrink, -0.045em);
+}
+
+body[data-field-variante="vorlage"] main.paper-text h1,
+body[data-field-variante="vorlage"] main.paper-text h2,
+body[data-field-variante="vorlage"] main.paper-text h3 {
+  position: relative;
+  top: calc(-4.27pt + var(--pht-half-pixel));
+  font-size: 14pt;
+  line-height: 25.64pt;
+  font-weight: bold;
+  margin: 12pt 0 6pt 0;
+  padding: 0;
+}
+
+body[data-field-variante="vorlage"] main.paper-text h3 {
+  top: calc(-3.66pt + var(--pht-half-pixel));
+  font-size: 12pt;
+  line-height: 21.97pt;
+  font-weight: normal;
+}
+
+/* A heading at the top of a page has no space before it; the first heading of the text is 1.93 pt lower, as in the
+   PDF of Word. */
+body[data-field-variante="vorlage"] main.paper-text[data-split-from] > :is(h1, h2, h3):first-child {
+  margin-top: 0;
+}
+
+body[data-field-variante="vorlage"] main.paper-text:not([data-split-from]) > :is(h1, h2, h3):first-child {
+  margin-top: 1.93pt;
+}
+
+body[data-field-variante="vorlage"] .heading-number {
+  min-width: 7.62mm;
+  margin-right: -0.226em;
+}
+
+body[data-field-variante="vorlage"] h2 .heading-number {
+  min-width: 10.16mm;
+}
+
+body[data-field-variante="vorlage"] h3 .heading-number {
+  min-width: 12.7mm;
+}
+
+/* An indented paragraph: 1 cm, as the research questions of the template. */
+body[data-field-variante="vorlage"] main.paper-text blockquote {
+  margin: 0 0 0 10mm;
+  font-size: 11pt;
+  line-height: 15.44pt;
+}
+
+body[data-field-variante="vorlage"] main.paper-text blockquote p {
+  text-align: left;
+  word-spacing: normal;
+}
+
+/* The reference list: a hanging indent of 1 cm, left-aligned, 10 pt after each entry, hyphenated as in Word. Word
+   also breaks web addresses with a hyphen, which changes the address; the layout does not. */
+body[data-field-variante="vorlage"] main.paper-text .references p {
+  margin: 0 0 10pt 0;
+  padding-left: 10mm;
+  text-indent: -10mm;
+  text-align: left;
+  word-spacing: normal;
+}
+
+/* The variant "klassisch" has the reference list of earlier works: without a chapter number and without hyphens.
+   The variant "vorlage" numbers it as the template does (headings.numberedSections of layout.json). */
+body[data-field-variante="klassisch"] h1.section-bib .heading-number {
+  display: none;
+}
+
+body[data-field-variante="klassisch"] .references {
+  hyphens: none;
 }
