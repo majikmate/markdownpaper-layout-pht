@@ -5,7 +5,7 @@ The layouts of the Pädagogische Hochschule Tirol (PHT) for
 the extension of VS Code and the command `markdownpaper` that make the pages and
 the PDF of a Markdown document in a layout.
 
-There are two versions of each layout, and a third version of the thesis,
+There are two versions of each layout, and two more versions of the thesis,
 each in a folder of its own. A document names the folder in the front matter,
 for example
 `layout: concept-v2`, so a new version never changes the pages of a document
@@ -18,6 +18,7 @@ that names an older one.
 | [`thesis-v2/`](thesis-v2/) | The thesis of the PHT | 2: the look of the Word template for theses, measured line by line |
 | [`concept-v2/`](concept-v2/) | The concept paper of the PHT | 2: the look of the Word template of the concept paper, measured line by line |
 | [`thesis-v3/`](thesis-v3/) | The thesis of the PHT | 3: the look of `thesis-v2/` with a closer cover page: the title and the subtitle with a line spacing of 1.1, and half the space between a label and its value |
+| [`thesis-v4/`](thesis-v4/) | The thesis of the PHT | 4: the look of `thesis-v2/`, with a cover page whose spaces below the subtitle shrink by the same factor for a long title |
 
 All layouts have a cover page with the logo of the PHT, the type of the
 work, the title, the author, the degree and the supervisor; footnotes at the
@@ -46,6 +47,7 @@ The look `vorlage` of each layout:
 | `thesis-v2/` | "Vorlage Abschlussarbeit" (`Abschlussarbeit_Vorlage.docx`) | Liberation Sans, with the metrics of Arial, 12 pt with a line spacing of 1.5 and 6 pt before and after a paragraph; margins of 30 mm, 25 mm, 25 mm and 35 mm; headings of 16 pt, 14 pt and 12 pt with the indents of the template; a title without a number, such as "Verzeichnisse", in capitals; no footer on the pages before the first chapter, "Seite 1" on the first page of the first chapter, and "Anhang I", "Anhang II", … in the appendix part; captions of 10 pt in dark blue, below a figure and above a table; lists with "•" or "a)". A cover page that a long title or programme would make longer than one page shrinks the large spaces of the template, as a Word user deletes empty lines. |
 | `concept-v2/` | "Vorlage für Konzeptpapier – Sekundarpädagogik" (`bac_konzeptpapierBA_SEK_2022.doc`) | The cover page with two tables; Carlito, with the metrics of Calibri, 11 pt with a line spacing of 1.15 and 10 pt after a paragraph; margins of 29 mm, 20 mm, 27.5 mm and 25 mm; numbered headings of 14 pt; "Seite N von M" at the bottom right. |
 | `thesis-v3/` | as `thesis-v2/` | The look of `thesis-v2/`, with two changes on the cover page, where the PHT overrules the template: the title and the subtitle have a line spacing of 1.1 instead of 1.5, and the space between "Verfasser:in" and the name and between "angestrebter akademischer Grad" and the degree is half of the space of the template (the labels have a single line spacing, and the name and the degree 6 pt instead of 12 pt above them). |
+| `thesis-v4/` | as `thesis-v2/` | The look of `thesis-v2/`, with another rule for a long cover page: the date stays where it is on a cover with one line for each text, and when the title, the subtitle or a value has more lines, all spaces from the subtitle to the date shrink by the same factor. The sizes of the fonts, the line spacing and the spaces above the title do not change. |
 
 The thesis and the concept paper of a version also differ in three defaults:
 the type of the work (`Bachelorarbeit` or `Konzeptpapier`), `kapitelumbruch`
@@ -77,7 +79,8 @@ The browser puts each line on a whole pixel (0.26 mm), so a line can be up to
   word whole because of the hyphenation zone of the template, which Word does
   not apply (the PDF of the concept paper shows this). A Word PDF of the
   thesis template would allow a check against Word itself.
-- `thesis-v3/`: the pages after the cover page are the pages of `thesis-v2/`.
+- `thesis-v3/` and `thesis-v4/`: the pages after the cover page are the pages of `thesis-v2/`. The cover page
+  of `thesis-v4/` with one line for each text is the cover page of `thesis-v2/`.
 - A Markdown table has no widths of its columns, so the browser gives each
   column its width, and the columns of a table can differ from Word.
 
@@ -104,7 +107,7 @@ for theses (`Abschlussarbeit_Vorlage_V4_1.docx`).
 
 | File | Download | Accessed | Used for |
 | --- | --- | --- | --- |
-| "Vorlage Abschlussarbeit", the Word template for theses | <https://cms.ph-tirol.ac.at/documents/Abschlussarbeit_Vorlage.docx> | 2026-10-30 | the look `vorlage` of `thesis-v2/` and `thesis-v3/` |
+| "Vorlage Abschlussarbeit", the Word template for theses | <https://cms.ph-tirol.ac.at/documents/Abschlussarbeit_Vorlage.docx> | 2026-10-30 | the look `vorlage` of `thesis-v2/`, `thesis-v3/` and `thesis-v4/` |
 | "Zitationsrichtlinien für Abschlussarbeiten" (Zitation nach APA 7), version 2.0 | <https://cms.ph-tirol.ac.at/documents/APA7-V2_0.pdf> | 2026-10-30 | `pht-apa7.csl` |
 | "Vorlage für Konzeptpapier – Sekundarpädagogik", the Word template of the concept paper | <https://cms.ph-tirol.ac.at/documents/bac_konzeptpapierBA_SEK_2022.doc> | 2026-10-30 | the look `vorlage` of `concept-v2/`, the chapter headings of `document.md` of `concept-v1/` and `concept-v2/`, and the heading of their reference list |
 | "Vorlage für Konzeptpapier – Primarpädagogik" | <https://cms.ph-tirol.ac.at/documents/konzeptpapierBA.PRIMAR.doc> | 2026-10-30 | not used: a concept paper of the primary level starts from this template instead |
