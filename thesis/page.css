@@ -1,0 +1,24 @@
+/*
+SPDX-License-Identifier: CC-BY-SA-4.0
+Licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. See LICENSE in the repository
+root for details.
+
+The pages of the thesis layout of the PHT: A4 with the page number at the foot. This is the start of the layout; the
+look of the Word template of the PHT follows, made with `npx -y @nimblescape/markdownpaper instructions layout`.
+*/
+
+@page {
+  size: A4;
+  margin: 25mm;
+
+  @bottom-right {
+    content: counter(page);
+    font-size: 9pt;
+  }
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11pt;
+  line-height: 1.5;
+}
