@@ -10,31 +10,59 @@ the PDF of a Markdown document in a layout.
 | [`thesis/`](thesis/) | The thesis (Abschlussarbeit) of the PHT, in German (`de-AT`): each chapter starts on a new page | done |
 | [`concept/`](concept/) | The concept paper (Konzeptpapier) of the PHT, in German (`de-AT`): the same pages, but a chapter follows the text before it | done |
 
-Both layouts have the look of the PHT template: a cover page with the logo of
-the PHT, the type of the work, the title, the author, the degree and the
-supervisor; A4 with margins of 30 mm, 25 mm, 25 mm and 35 mm; Liberation Sans,
-with the metrics of Arial, in 12 pt with a line spacing of 1.5; a footer with
-the author and "Seite N" below a line; footnotes at the foot of the page; and
-the citation style of the PHT. The fields of the front matter are in German, as
-in the template: `title`, `subtitle`, `type`, `author`, `grad`, `betreuerin`,
-`matrikelnummer`, `studium`, `lehrveranstaltung`, `date`, `kapitelumbruch`
-and `variante`. `layout.json` of each folder describes them, and the name of
-the PDF file is `{{matrikelnummer}}_{{author}}_{{lehrveranstaltung}}_{{type}}`.
+Both layouts have a cover page with the logo of the PHT, the type of the
+work, the title, the author, the degree and the supervisor; footnotes at the
+foot of the page; and the citation style of the PHT. The fields of the front
+matter are in German, as in the templates: `title`, `subtitle`, `type`,
+`author`, `grad`, `betreuerin`, `matrikelnummer`, `studium`,
+`lehrveranstaltung`, `date`, `kapitelumbruch` and `variante`. `layout.json` of
+each folder describes them, and the name of the PDF file is
+`{{matrikelnummer}}_{{author}}_{{lehrveranstaltung}}_{{type}}`.
 
 Both layouts have two parameters, fields of `layout.json` with a list of
 names to choose from:
 
 | Field | Names | What it changes |
 | --- | --- | --- |
-| `variante` | `vorlage` (default), `klassisch` | `vorlage` is the look of the Word template of the PHT. `klassisch` is the look of earlier works made with the skill `markdown-to-paper` of `scalarion/transcribe`: Liberation Serif, with the metrics of Times New Roman, and a bottom margin of 22 mm. |
-| `kapitelumbruch` | `ja`, `nein` | `ja`: each chapter (`#`) starts on a new page; `nein`: a chapter follows the text before it, with a space of 18 pt. |
+| `variante` | `vorlage` (default), `klassisch` | `vorlage` is the look of the Word template of the PHT for the layout (see the next table). `klassisch` is the look of earlier works made with the skill `markdown-to-paper` of `scalarion/transcribe`: Liberation Serif, with the metrics of Times New Roman, 12 pt with a line spacing of 1.5, margins of 30 mm, 25 mm, 22 mm and 35 mm, and a footer with the author and "Seite N" below a line. |
+| `kapitelumbruch` | `ja`, `nein` | `ja`: each chapter (`#`) starts on a new page; `nein`: a chapter follows the text before it, with a space. |
 
-The two layouts differ only in three defaults: the type of the work
+The look `vorlage` of each layout:
+
+| Layout | Word template | Look |
+| --- | --- | --- |
+| `thesis/` | "Vorlage Abschlussarbeit" (`Abschlussarbeit_Vorlage.docx`) | Liberation Sans, with the metrics of Arial, 12 pt with a line spacing of 1.5 and 6 pt before and after a paragraph; margins of 30 mm, 25 mm, 25 mm and 35 mm; headings of 16 pt, 14 pt and 12 pt with the indents of the template; a title without a number, such as "Verzeichnisse", in capitals; no footer on the pages before the first chapter, "Seite 1" on the first page of the first chapter, and "Anhang I", "Anhang II", … in the appendix part; captions of 10 pt in dark blue, below a figure and above a table; lists with "•" or "a)". |
+| `concept/` | "Vorlage für Konzeptpapier – Sekundarpädagogik" (`bac_konzeptpapierBA_SEK_2022.doc`) | The cover page with two tables; Carlito, with the metrics of Calibri, 11 pt with a line spacing of 1.15 and 10 pt after a paragraph; margins of 29 mm, 20 mm, 27.5 mm and 25 mm; numbered headings of 14 pt; "Seite N von M" at the bottom right. |
+
+The two layouts also differ in three defaults: the type of the work
 (`Bachelorarbeit` or `Konzeptpapier`), `kapitelumbruch` (`ja` or `nein`), and
 the heading of the reference list: the concept paper also finds the heading
 "Erste Auswahl an (Grundlagen-)Literatur und Quellen" of the concept template
 of the PHT. Each folder holds its own copies of the files, because the paths
 of a layout stay inside its folder.
+
+### How close the pages are to Word
+
+The look `vorlage` was measured line by line against PDFs of the templates.
+The browser puts each line on a whole pixel (0.26 mm), so a line can be up to
+0.13 mm away from its place in Word.
+
+- `concept/`: against a PDF that Word made from a concept paper in the
+  template, 175 of 207 lines of text have the same words, and all of them are
+  at most 0.2 mm away from their place in Word. Each page has the same lines.
+  The other lines break at another place, mostly because Word hyphenates some
+  words at another syllable or breaks an address at another character.
+- `thesis/`: no PDF of Word was at hand, so the pages were measured against
+  the PDF that LibreOffice 24.2 makes from the template. The lines with the
+  same words are at most 0.16 mm away from their place in LibreOffice, also
+  the cover page, the headings, the figures and their captions, the footers
+  and the footnotes. Some lines break at another place, where LibreOffice,
+  unlike Word, shrinks the spaces of a line by more than a fifth, or keeps a
+  word whole because of the hyphenation zone of the template, which Word does
+  not apply (the PDF of the concept paper shows this). A Word PDF of the
+  thesis template would allow a check against Word itself.
+- A Markdown table has no widths of its columns, so the browser gives each
+  column its width, and the columns of a table can differ from Word.
 
 A document names its layout in the front matter, for example
 `layout: concept`. Today Markdown Paper reads a layout only from the folder
@@ -59,15 +87,15 @@ for theses (`Abschlussarbeit_Vorlage_V4_1.docx`).
 
 | File | Download | Accessed | Used for |
 | --- | --- | --- | --- |
-| "Vorlage Abschlussarbeit", the Word template for theses | <https://cms.ph-tirol.ac.at/documents/Abschlussarbeit_Vorlage.docx> | 2026-10-30 | the cover page, the margins, the headings, the footnotes and the table of contents of `thesis/` and `concept/` |
+| "Vorlage Abschlussarbeit", the Word template for theses | <https://cms.ph-tirol.ac.at/documents/Abschlussarbeit_Vorlage.docx> | 2026-10-30 | the look `vorlage` of `thesis/` |
 | "Zitationsrichtlinien für Abschlussarbeiten" (Zitation nach APA 7), version 2.0 | <https://cms.ph-tirol.ac.at/documents/APA7-V2_0.pdf> | 2026-10-30 | `pht-apa7.csl` |
-| "Vorlage für Konzeptpapier – Sekundarpädagogik", the Word template of the concept paper | <https://cms.ph-tirol.ac.at/documents/bac_konzeptpapierBA_SEK_2022.doc> | 2026-10-30 | the chapter headings of `concept/document.md` and the heading of its reference list, as in the concept paper of `scalarion/transcribe` |
+| "Vorlage für Konzeptpapier – Sekundarpädagogik", the Word template of the concept paper | <https://cms.ph-tirol.ac.at/documents/bac_konzeptpapierBA_SEK_2022.doc> | 2026-10-30 | the look `vorlage` of `concept/`, the chapter headings of `concept/document.md` and the heading of its reference list |
 | "Vorlage für Konzeptpapier – Primarpädagogik" | <https://cms.ph-tirol.ac.at/documents/konzeptpapierBA.PRIMAR.doc> | 2026-10-30 | not used: a concept paper of the primary level starts from this template instead |
 
-The variant `vorlage` follows the Word template: Liberation Sans for Arial
-(text 12 pt, headings 16 pt, 14 pt and 12 pt) and a bottom margin of 25 mm
-with the footer inside it. The variant `klassisch` keeps the font and the
-bottom margin of the skill.
+The Word template for theses at the address above has the same text,
+margins and styles as version 4.1, which the skill was made from (checked on
+2026-10-30). The look `vorlage` follows the Word templates; the look
+`klassisch` keeps the font and the bottom margin of the skill.
 
 ## The citation style of the PHT
 
@@ -106,6 +134,10 @@ are listed here when a layout holds them:
   Corporation and (c) 2012 Red Hat, Inc., under the SIL Open Font License 1.1,
   see `fonts/LICENSE-Liberation.txt`. They have the metrics of Arial, the font
   of the PHT template, and of Times New Roman.
+- `fonts/Carlito-*.ttf` in `concept/`: Carlito 1.104, copyright (c) 2010-2013
+  by tyPoland Łukasz Dziedzic, under the SIL Open Font License 1.1, see
+  `fonts/LICENSE-Carlito.txt`. It has the metrics of Calibri, the font that
+  Word shows for the concept template.
 - `images/pht-logo.png` in each layout: the logo of the Pädagogische
   Hochschule Tirol. It is not under CC BY-SA 4.0; the PHT holds its rights.
   It is here only for the cover pages of works at the PHT.

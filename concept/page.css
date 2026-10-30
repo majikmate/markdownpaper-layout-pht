@@ -335,7 +335,7 @@ main.paper-text[data-field-kapitelumbruch="nein"] h1 {
   break-before: auto;
 }
 
-main.paper-text[data-field-kapitelumbruch="nein"] > h1:first-child {
+main.paper-text[data-field-kapitelumbruch="nein"] .paper-part > h1:first-child {
   margin-top: 0;
 }
 
@@ -860,11 +860,11 @@ body[data-field-variante="vorlage"] main.paper-text h3 {
 
 /* A heading at the top of a page has no space before it; the first heading of the text is 1.93 pt lower, as in the
    PDF of Word. */
-body[data-field-variante="vorlage"] main.paper-text[data-split-from] > :is(h1, h2, h3):first-child {
+body[data-field-variante="vorlage"] main.paper-text .paper-part[data-split-from] > :is(h1, h2, h3):first-child {
   margin-top: 0;
 }
 
-body[data-field-variante="vorlage"] main.paper-text:not([data-split-from]) > :is(h1, h2, h3):first-child {
+body[data-field-variante="vorlage"] main.paper-text .paper-part:first-child:not([data-split-from]) > :is(h1, h2, h3):first-child {
   margin-top: 1.93pt;
 }
 

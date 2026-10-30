@@ -54,18 +54,34 @@
       "values": ["ja", "nein"]
     },
     "variante": {
-      "description": "Das Aussehen der Seiten: vorlage wie die Word-Vorlage der PHT (Arial, unterer Rand 25 mm); klassisch wie frühere Arbeiten (Times New Roman, unterer Rand 22 mm).",
+      "description": "Das Aussehen der Seiten: vorlage wie die Word-Vorlage für Abschlussarbeiten der PHT (Arial 12 pt, Seitenzahl ab dem ersten Kapitel, Anhang mit I, II, …); klassisch wie frühere Arbeiten (Times New Roman 12 pt, unterer Rand 22 mm).",
       "default": "vorlage",
       "values": ["vorlage", "klassisch"]
     }
   },
+  "terms": {
+    "BIB": [
+      "Literatur/Quellen/Referenzen",
+      "Literaturverzeichnis",
+      "Literatur",
+      "Quellenverzeichnis",
+      "Quellen",
+      "Bibliographie",
+      "Bibliografie"
+    ]
+  },
   "headings": {
     "numbered": true,
-    "depth": 3
+    "depth": 3,
+    "numberedSections": ["BIB", "LOF", "LOT", "LOL"]
   },
   "contents": {
-    "depth": 3
+    "depth": 3,
+    "front": false
   },
   "hyphenate": true,
+  "references": {
+    "hyphenate": true
+  },
   "pdfName": "{{matrikelnummer}}_{{author}}_{{lehrveranstaltung}}_{{type}}"
 }
