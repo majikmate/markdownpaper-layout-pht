@@ -770,7 +770,8 @@ main.paper-text[data-field-variante="vorlage"] > .paper-appendix {
 /* The cover page of the template: the logo in the header, 19.85 mm below the top and centered over the text; below the
    top margin of 65 mm the type of the work (36 pt), the title (20 pt) with a line below it, the subtitle (14 pt), the
    author (18 pt), the degree (22 pt), the supervisor, the student ID and the programme with a tab at 55 mm, and the
-   date, each paragraph with the spacing of the template. The cover is as high as the page without its bottom margin;
+   date, each paragraph with the spacing of the template, except the line spacing of the title, the subtitle and the
+   labels, and the space above the name and the degree. The cover is as high as the page without its bottom margin;
    the large spaces of the template (36 pt, and 32.7 pt before the date) are the elements "pht-gap", which shrink
    down to 6 pt, each by its share, when a long title or programme would push the cover onto a second page. A Word
    user deletes empty lines for this; a cover that fits keeps the spaces of the template. */
@@ -834,6 +835,14 @@ main.paper-text[data-field-variante="vorlage"] > .paper-appendix {
   margin: 0;
 }
 
+/* The title and the subtitle have a line spacing of 1.1 (1.1 single lines of Arial) instead of the 1.5 of the
+   template, so a long title stays together. The text moves up by half of the added space, as in the text below. */
+.paper-template-cover[data-field-variante="vorlage"] p.pht-title,
+.paper-template-cover[data-field-variante="vorlage"] p.pht-subtitle {
+  top: calc(-0.041138em + var(--pht-half-pixel));
+  line-height: 1.264892;
+}
+
 .paper-template-cover[data-field-variante="vorlage"] p.pht-title {
   font-size: 20pt;
   font-weight: bold;
@@ -852,21 +861,26 @@ main.paper-text[data-field-variante="vorlage"] > .paper-appendix {
   margin: 6pt 0 0 0;
 }
 
+/* "Verfasser:in" and "angestrebter akademischer Grad" have a single line spacing, and the name and the degree 6 pt
+   before them instead of the 1.5 lines and 12 pt of the template: this halves the space between a label and its
+   value. */
 .paper-template-cover[data-field-variante="vorlage"] p.pht-label {
+  top: calc(0.016358em + var(--pht-half-pixel));
   font-size: 12pt;
+  line-height: 1.149902;
   margin: 0;
 }
 
 .paper-template-cover[data-field-variante="vorlage"] p.pht-author {
   font-size: 18pt;
   font-weight: bold;
-  margin: 12pt 0 0 0;
+  margin: 6pt 0 0 0;
 }
 
 .paper-template-cover[data-field-variante="vorlage"] p.pht-degree {
   font-size: 22pt;
   font-weight: bold;
-  margin: 12pt 0 0 0;
+  margin: 6pt 0 0 0;
 }
 
 .paper-template-cover[data-field-variante="vorlage"] table.pht-meta {
