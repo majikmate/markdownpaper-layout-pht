@@ -47,7 +47,8 @@ concept template of the PHT. The thesis layout also numbers the reference list
 and the lists of figures, tables and listings as chapters, and leaves the
 chapters before the first chapter out of the table of contents, as the Word
 template does. A hint (`> [!NOTE]`) is the light blue box of the concept
-template in both layouts, also in the look `klassisch`. Each folder holds its
+template in both layouts, also in the look `klassisch`, and keeps this form
+under the heading of the reference list. Each folder holds its
 own copies of the files, because the paths of a layout stay inside its folder.
 
 ### How close the pages are to Word

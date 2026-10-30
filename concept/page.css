@@ -615,8 +615,9 @@ nav .appendix-label {
   display: inline;
 }
 
-/* The reference list (PHT APA 7): hanging indent of 1.25 cm, left-aligned. */
-.references p {
+/* The reference list (PHT APA 7): hanging indent of 1.25 cm, left-aligned. The entries are the paragraphs directly in
+   the section; a hint box in the section keeps its own form. */
+.references > p {
   text-align: left;
   padding-left: 12.5mm;
   text-indent: -12.5mm;
@@ -945,7 +946,7 @@ body[data-field-variante="vorlage"] main.paper-text blockquote p {
 
 /* The reference list: a hanging indent of 1 cm, left-aligned, 10 pt after each entry, hyphenated as in Word. Word
    also breaks web addresses with a hyphen, which changes the address; the layout does not. */
-body[data-field-variante="vorlage"] main.paper-text .references p {
+body[data-field-variante="vorlage"] main.paper-text .references > p {
   margin: 0 0 10pt 0;
   padding-left: 10mm;
   text-indent: -10mm;
