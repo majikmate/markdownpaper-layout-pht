@@ -882,7 +882,8 @@ main.paper-text[data-field-variante="vorlage"] > .paper-appendix {
 }
 
 .paper-template-cover[data-field-variante="vorlage"] table.pht-meta tr {
-  display: block;
+  display: flex;
+  align-items: baseline;
   margin: 6pt 0;
 }
 
@@ -895,21 +896,21 @@ main.paper-text[data-field-variante="vorlage"] > .paper-appendix {
 }
 
 .paper-template-cover[data-field-variante="vorlage"] table.pht-meta td {
-  display: inline-block;
+  display: block;
   padding: 0;
   border: none;
-  vertical-align: baseline;
 }
 
-/* The tab of the template at 3119 twips. A long value goes on after the tab and wraps to the left margin, as the text
-   after a tab in Word. */
+/* The tab of the template at 3119 twips. A long value wraps to the start of the value, not to the left margin. */
 .paper-template-cover[data-field-variante="vorlage"] table.pht-meta td.pht-key {
+  flex: none;
   width: 55.022mm;
   font-weight: bold;
 }
 
 .paper-template-cover[data-field-variante="vorlage"] table.pht-meta td:not(.pht-key) {
-  display: inline;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 /* An empty paragraph of 1.5 lines lies between the programme and the date (the gap "pht-gap-date"). */
