@@ -9,6 +9,7 @@
   "before": ["cover.html"],
   "after": [],
   "document": "document.md",
+  "preview": "document.pdf",
   "fields": {
     "title": {
       "description": "Der Titel der Arbeit, groß auf dem Deckblatt.",

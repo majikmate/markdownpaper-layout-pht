@@ -97,6 +97,24 @@ repository of layouts for Markdown Paper; the page
 <https://github.com/topics/nimblescape-markdownpaper-layout> lists all public
 ones.
 
+## The empty paper document and its preview
+
+Each layout folder holds its empty paper document, `document.md`, and the PDF
+of it, `document.pdf`, which shows the pages of the layout with example texts
+before a person chooses it (the fields `document` and `preview` of
+`layout.json`). `markdownpaper create` and the command "New Project" of VS
+Code copy the empty paper document into `paper/paper.md` of a new project,
+with the files that it links to.
+
+| Layout | `document.md` |
+| --- | --- |
+| `thesis-v1/` to `thesis-v4/` | The front matter with the texts of the cover page of the Word template ("Titel eintragen", "Matrikelnummer eintragen", …); the "Eidesstattliche Erklärung", the "Abstract" and the "Vorwort" with the texts of the template; then eight chapters that explain in German how to work with the document in VS Code with nimblescape Markdown Paper and nimblescape Markdown Notes: the folders of a project, the cover page, text, headings, footnotes, the Markdown of the styles of the template, figures, tables, code, sources and citations, AI tools and agents, notes, the pages, the PDF, and the texts of the template on gender-fair language and accessibility; then the lists, the list of abbreviations and the appendix of the template. The figure is `images/projekt-ordner.svg`, the listing shows `code/mittelwert.py`, and the example citation is the source `hattie2007`, whose metadata `markdownpaper source` took from doi.org. |
+| `concept-v1/`, `concept-v2/` | The front matter with the texts of the cover page of the concept template ("Geben Sie hier Ihren Vor- und Familiennamen ein!", …); the five chapters of the template with its hints, each followed by a short explanation of how to write it, with a table and the same example citation. |
+
+`npx -y @nimblescape/markdownpaper preview <folder> --write` formats the
+empty paper document of a folder and writes its `document.pdf` again; run it
+after a change of the layout or of the document.
+
 ## Sources
 
 The layouts were made on 2026-10-30 from these files of the PHT. The page
@@ -108,11 +126,11 @@ for theses (`Abschlussarbeit_Vorlage_V4_1.docx`).
 
 | File | Download | Accessed | Used for |
 | --- | --- | --- | --- |
-| "Vorlage Abschlussarbeit", the Word template for theses | <https://cms.ph-tirol.ac.at/documents/Abschlussarbeit_Vorlage.docx> | 2026-10-30 | the look `vorlage` of `thesis-v2/`, `thesis-v3/` and `thesis-v4/`, and the text of the "Eidesstattliche Erklärung" in `document.md` of all thesis layouts |
+| "Vorlage Abschlussarbeit", the Word template for theses | <https://cms.ph-tirol.ac.at/documents/Abschlussarbeit_Vorlage.docx> | 2026-10-30 | the look `vorlage` of `thesis-v2/`, `thesis-v3/` and `thesis-v4/`; in `document.md` of all thesis layouts the texts of the cover page, of the "Eidesstattliche Erklärung", the "Abstract" and the "Vorwort", the styles of table 1, the texts on AI tools with table 2, on gender-fair language and on accessibility, and the texts of the lists, of the list of abbreviations and of the appendix |
 | "Corporate Design" of the PHT, the page with the logos and the colors | <https://ph-tirol.ac.at/corporate-design-pht/> | 2026-10-30 | the red of the PHT, RGB 238/17/23 (`#EE1117`, HKS 13), as in the logo of the web site |
 | "Wortmarke" of the PHT (`PHT_wortmarke.zip`), from the page "Corporate Design" | <https://cms.ph-tirol.ac.at/documents/PHT_wortmarke.zip> | 2026-10-30 | `images/pht-logo.png` of `thesis-v4/`, made from `PHT_wortmarke_rgb.pdf` |
 | "Zitationsrichtlinien für Abschlussarbeiten" (Zitation nach APA 7), version 2.0 | <https://cms.ph-tirol.ac.at/documents/APA7-V2_0.pdf> | 2026-10-30 | `pht-apa7.csl` |
-| "Vorlage für Konzeptpapier – Sekundarpädagogik", the Word template of the concept paper | <https://cms.ph-tirol.ac.at/documents/bac_konzeptpapierBA_SEK_2022.doc> | 2026-10-30 | the look `vorlage` of `concept-v2/`, the chapter headings of `document.md` of `concept-v1/` and `concept-v2/`, and the heading of their reference list |
+| "Vorlage für Konzeptpapier – Sekundarpädagogik", the Word template of the concept paper | <https://cms.ph-tirol.ac.at/documents/bac_konzeptpapierBA_SEK_2022.doc> | 2026-10-30 | the look `vorlage` of `concept-v2/`; in `document.md` of `concept-v1/` and `concept-v2/` the texts of the cover page, the chapter headings and the hints below them; the heading of their reference list |
 | "Vorlage für Konzeptpapier – Primarpädagogik" | <https://cms.ph-tirol.ac.at/documents/konzeptpapierBA.PRIMAR.doc> | 2026-10-30 | not used: a concept paper of the primary level starts from this template instead |
 
 The Word template for theses at the address above has the same text,
