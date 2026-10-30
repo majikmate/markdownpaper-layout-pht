@@ -391,6 +391,28 @@ blockquote p {
   margin: 0 0 6pt 0;
 }
 
+/* The hint of the template under a chapter heading, an alert of GitHub in the file (> [!NOTE]): the light blue box of
+   the template, RGB 219/229/241, over the width of the text, with the hint in italics, 10 pt, dark grey (RGB 64/64/64),
+   1.905 mm from the left and the right edge and 3 pt from the top and the bottom edge. The box has no title. */
+.markdown-alert {
+  margin: 0 0 12pt 0;
+  padding: 3pt 1.905mm;
+  background: #dbe5f1;
+  color: #404040;
+  font-size: 10pt;
+  font-style: italic;
+  line-height: 1.2;
+  text-align: justify;
+}
+
+.markdown-alert-title {
+  display: none;
+}
+
+main.paper-text .markdown-alert p {
+  margin: 0;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -894,6 +916,19 @@ body[data-field-variante="vorlage"] h2 .heading-number {
 
 body[data-field-variante="vorlage"] h3 .heading-number {
   min-width: 12.7mm;
+}
+
+/* The box of a hint, a table of one cell in the template: the paragraph of the hint has single line spacing, 3 pt
+   before and after it, and no space after its last line. The text of the chapter follows below a small empty paragraph
+   of 4 pt, as in chapters 2 to 4 of the template: 15.3 pt. */
+body[data-field-variante="vorlage"] main.paper-text .markdown-alert {
+  margin: 0 0 15.3pt 0;
+  line-height: 12.207pt;
+}
+
+body[data-field-variante="vorlage"] main.paper-text .markdown-alert p {
+  top: var(--pht-half-pixel);
+  margin: 0;
 }
 
 /* An indented paragraph: 1 cm, as the research questions of the template. */
