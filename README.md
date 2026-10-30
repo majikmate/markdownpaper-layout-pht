@@ -26,13 +26,15 @@ matter are in German, as in the templates: `title`, `subtitle`, `type`,
 each folder describes them, and the name of the PDF file is
 `{{matrikelnummer}}_{{author}}_{{lehrveranstaltung}}_{{type}}`.
 
-All layouts have two parameters, fields of `layout.json` with a list of
-names to choose from:
+All layouts have the two parameters `variante` and `kapitelumbruch`, fields of
+`layout.json` with a list of names to choose from. The thesis layouts also
+have the parameter `type`:
 
 | Field | Names | What it changes |
 | --- | --- | --- |
 | `variante` | `vorlage` (default), `klassisch` | `vorlage` is the look of the Word template of the PHT (see the next table). `klassisch` is the look of earlier works made with the skill `markdown-to-paper` of `scalarion/transcribe`: Liberation Serif, with the metrics of Times New Roman, 12 pt with a line spacing of 1.5, margins of 30 mm, 25 mm, 22 mm and 35 mm, and a footer with the author and "Seite N" below a line. |
 | `kapitelumbruch` | `ja`, `nein` | `ja`: each chapter (`#`) starts on a new page; `nein`: a chapter follows the text before it, with a space. |
+| `type` (only `thesis-v1/` and `thesis-v2/`) | `Seminararbeit`, `Abschlussarbeit`, `Bachelorarbeit` (default), `Masterarbeit` | The type of the work above the title of the cover page and in the name of the PDF file. The names are those of the list of the Word template "Vorlage Abschlussarbeit". |
 
 The look `vorlage` of each layout:
 

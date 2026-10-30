@@ -18,8 +18,9 @@
       "description": "Der Untertitel unter dem Titel; weglassen für keinen Untertitel."
     },
     "type": {
-      "description": "Die Art der Arbeit über dem Titel und im Namen der PDF-Datei, zum Beispiel Bachelorarbeit, Masterarbeit oder Seminararbeit.",
-      "default": "Bachelorarbeit"
+      "description": "Die Art der Arbeit über dem Titel und im Namen der PDF-Datei, eine der Arten der Auswahlliste der Word-Vorlage.",
+      "default": "Bachelorarbeit",
+      "values": ["Seminararbeit", "Abschlussarbeit", "Bachelorarbeit", "Masterarbeit"]
     },
     "author": {
       "description": "Vorname und Nachname der Verfasserin oder des Verfassers, auf dem Deckblatt und in der Fußzeile jeder Seite.",
