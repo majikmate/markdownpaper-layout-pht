@@ -158,7 +158,7 @@ PHT:
   | `container-title` | The gazette of the first publication | `BGBl.`, `BGBl. I`, `BGBl. II`, `ABl. L` |
   | `number` | The number of the first publication, as the gazette writes it | `Nr. 134/1963` |
   | `references` | The version that the text cites, without "in der Fassung"; left out for the first version | `BGBl. II Nr. 303/2012` |
-  | `issued` | The day of that version, or of the law without a version, with day, month and year | `{"date-parts":[[2012,9,13]]}` |
+  | `issued` | The day of that version, or of the law without a version; only the year when the source gives no day, and then the entry has no "vom …" | `{"date-parts":[[2012,9,13]]}` |
 
   The citation names the title and the year of `issued`:
   `(Lehrplan der Volksschule, 2012)`, `(Schulorganisationsgesetz, 1962, § 65)`.
