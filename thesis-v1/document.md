@@ -248,6 +248,8 @@ Feedback wirkt stark auf das Lernen ([Hattie & Timperley, 2007, S. 81](#hattie20
 
 Feedback wirkt stark auf das Lernen ([Hattie & Timperley, 2007, S. 81](#hattie2007 "page 81")). Den Text jedes Zitats und die Einträge des Literaturverzeichnisses schreibt der Formatierer beim Speichern, im Zitierstil des Layouts. Ein Zitat einer Quelle ohne Daten unterstreicht VS Code gelb.
 
+Damit ein KI-Agent die Quellen für ein Argument sucht, markieren Sie das Argument und tippen `/research`. Das Argument bekommt davor eine verborgene Marke und an seinem Ende `(RESEARCH)`. Der Agent sucht Quellen, die das Argument stützen, ergänzt sie und setzt ihre Zitate an die Stelle von `(RESEARCH)`. Bis dahin zeigen die Seiten `(RESEARCH)`, und VS Code unterstreicht es gelb.
+
 # Mit KI arbeiten
 
 ## Transparenter Einsatz von KI-basierten Tools
