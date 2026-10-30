@@ -1,0 +1,45 @@
+<!--
+SPDX-License-Identifier: CC-BY-SA-4.0
+Licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. See LICENSE in the repository
+root for details.
+
+The cover page of the concept paper of the PHT. The variant "vorlage" is the cover of the Word template "Vorlage für
+Konzeptpapier – Sekundarpädagogik": the logo at the top right, the heading "Konzeptpapier für Bachelorarbeiten", a
+table with the author, the student ID, the programme and the date, a table with the supervisor, and the name of the
+PHT in the footer. The variant "klassisch" is the cover of earlier works: the logo, the type of the work, the title
+and the subtitle, the author, the degree, the supervisor, the student ID, the programme and the date. page.css shows
+the cover of the variant of the front matter.
+-->
+<section class="pht-concept-cover">
+  <div class="pht-concept-logo"><img src="images/pht-logo.png" alt="Pädagogische Hochschule Tirol"></div>
+  <p class="pht-concept-heading">Konzeptpapier für Bachelorarbeiten</p>
+  <table class="pht-concept-table pht-concept-student">
+    <tr><td class="pht-concept-key">Eingereicht von:</td><td class="pht-concept-value">{{author}}</td></tr>
+    <tr><td class="pht-concept-key">Matrikelnummer:</td><td class="pht-concept-value">{{matrikelnummer}}</td></tr>
+    <tr><td class="pht-concept-key">Studium:</td><td class="pht-concept-value">{{studium}}</td></tr>
+    <tr><td class="pht-concept-key">Datum:</td><td class="pht-concept-value">{{date}}</td></tr>
+  </table>
+  <table class="pht-concept-table pht-concept-supervisor">
+    <tr><td class="pht-concept-key">Betreuer:in:</td><td class="pht-concept-value">{{betreuerin}}</td></tr>
+  </table>
+  <p class="pht-concept-footer">Pädagogische Hochschule Tirol</p>
+</section>
+<section class="pht-cover">
+  <div class="pht-logo"><img src="images/pht-logo.png" alt="Pädagogische Hochschule Tirol"></div>
+  {{#type}}<p class="pht-type">{{type}}</p>{{/type}}
+  <div class="pht-title-block">
+    <p class="pht-title">{{title}}</p>
+    <div class="pht-title-rule"></div>
+    {{#subtitle}}<p class="pht-subtitle">{{subtitle}}</p>{{/subtitle}}
+  </div>
+  <p class="pht-label">Verfasser:in</p>
+  <p class="pht-author">{{author}}</p>
+  <p class="pht-label">angestrebter akademischer Grad</p>
+  <p class="pht-degree">{{grad}}</p>
+  <table class="pht-meta">
+    <tr><td class="pht-key">Betreuer:in:</td><td>{{betreuerin}}</td></tr>
+    <tr><td class="pht-key">Matrikelnummer:</td><td>{{matrikelnummer}}</td></tr>
+    <tr><td class="pht-key">Studium:</td><td>{{studium}}</td></tr>
+  </table>
+  <p class="pht-date">{{date}}</p>
+</section>
