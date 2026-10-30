@@ -50,15 +50,19 @@ ones.
 
 ## Sources
 
-The layouts were made on 2026-10-30 from these files of the PHT. The look of
-the pages was ported from the skill `markdown-to-paper` of the repository
-`scalarion/transcribe`, which was made from the same Word template.
+The layouts were made on 2026-10-30 from these files of the PHT. The page
+"Bachelorarbeit" of the PHT, <https://ph-tirol.ac.at/bachelorarbeit/>, links
+them under these addresses on 2026-10-30. The look of the pages was ported
+from the skill `markdown-to-paper` of the repository `scalarion/transcribe`,
+which was made from version 4.1 of the Word template for theses
+(`Abschlussarbeit_Vorlage_V4_1.docx`).
 
 | File | Download | Used for |
 | --- | --- | --- |
-| `Abschlussarbeit_Vorlage_V4_1.docx`, the Word template for theses, version 4.1 | the page "Bachelorarbeit" of the PHT, <https://ph-tirol.ac.at/bachelorarbeit/> | the cover page, the margins, the headings, the footnotes and the table of contents of `thesis/` and `concept/` |
-| `APA7-V2_0.pdf`, "Zitationsrichtlinien für Abschlussarbeiten an der PHT, Zitation nach APA 7", version 2.0 | the page "Bachelorarbeit" of the PHT, <https://ph-tirol.ac.at/bachelorarbeit/> | `pht-apa7.csl` |
-| The Word template of the concept paper (Konzeptpapier) of the bachelor study | the service portal of the PHT, <https://service.ph-tirol.at>, after the sign-in with the Office 365 account, as the guide "BA-Antrag Schritt für Schritt" of the PHT says | the chapter headings of `concept/document.md` and the heading of its reference list |
+| "Vorlage Abschlussarbeit", the Word template for theses | <https://cms.ph-tirol.ac.at/documents/Abschlussarbeit_Vorlage.docx> | the cover page, the margins, the headings, the footnotes and the table of contents of `thesis/` and `concept/` |
+| "Zitationsrichtlinien für Abschlussarbeiten" (Zitation nach APA 7), version 2.0 | <https://cms.ph-tirol.ac.at/documents/APA7-V2_0.pdf> | `pht-apa7.csl` |
+| "Vorlage für Konzeptpapier – Sekundarpädagogik", the Word template of the concept paper | <https://cms.ph-tirol.ac.at/documents/bac_konzeptpapierBA_SEK_2022.doc> | the chapter headings of `concept/document.md` and the heading of its reference list, as in the concept paper of `scalarion/transcribe` |
+| "Vorlage für Konzeptpapier – Primarpädagogik" | <https://cms.ph-tirol.ac.at/documents/konzeptpapierBA.PRIMAR.doc> | not used: a concept paper of the primary level starts from this template instead |
 
 The variant `vorlage` follows the Word template: Liberation Sans for Arial
 (text 12 pt, headings 16 pt, 14 pt and 12 pt) and a bottom margin of 25 mm
