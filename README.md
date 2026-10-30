@@ -47,7 +47,7 @@ The look `vorlage` of each layout:
 | `thesis-v2/` | "Vorlage Abschlussarbeit" (`Abschlussarbeit_Vorlage.docx`) | Liberation Sans, with the metrics of Arial, 12 pt with a line spacing of 1.5 and 6 pt before and after a paragraph; margins of 30 mm, 25 mm, 25 mm and 35 mm; headings of 16 pt, 14 pt and 12 pt with the indents of the template; a title without a number, such as "Verzeichnisse", in capitals; no footer on the pages before the first chapter, "Seite 1" on the first page of the first chapter, and "Anhang I", "Anhang II", … in the appendix part; captions of 10 pt in dark blue, below a figure and above a table; lists with "•" or "a)". A cover page that a long title or programme would make longer than one page shrinks the large spaces of the template, as a Word user deletes empty lines. |
 | `concept-v2/` | "Vorlage für Konzeptpapier – Sekundarpädagogik" (`bac_konzeptpapierBA_SEK_2022.doc`) | The cover page with two tables; Carlito, with the metrics of Calibri, 11 pt with a line spacing of 1.15 and 10 pt after a paragraph; margins of 29 mm, 20 mm, 27.5 mm and 25 mm; numbered headings of 14 pt; "Seite N von M" at the bottom right. |
 | `thesis-v3/` | as `thesis-v2/` | The look of `thesis-v2/`, with two changes on the cover page, where the PHT overrules the template: the title and the subtitle have a line spacing of 1.1 instead of 1.5, and the space between "Verfasser:in" and the name and between "angestrebter akademischer Grad" and the degree is half of the space of the template (the labels have a single line spacing, and the name and the degree 6 pt instead of 12 pt above them). |
-| `thesis-v4/` | as `thesis-v2/` | The look of `thesis-v2/`, with these changes on the cover page: the title and the subtitle have a single line spacing instead of 1.5, the line below the title lies in the middle between the title and the subtitle, and the date stays where it is on a cover with one line for each text: when the title, the subtitle or a value has more lines, all spaces from the bottom of the logo to the date, also the spaces above and below the type of the work, shrink by the same factor, but the rows of the table stay at least as far apart as the lines of a long value. The sizes of the fonts and the other line spacings do not change. |
+| `thesis-v4/` | as `thesis-v2/` | The look of `thesis-v2/`, with these changes on the cover page: the title and the subtitle have a single line spacing instead of 1.5, the line below the title lies in the middle between the title and the subtitle, and the date stays where it is on a cover with one line for each text: when the title, the subtitle or a value has more lines, all spaces from the bottom of the logo to the date, also the spaces above and below the type of the work, shrink by the same factor, but the rows of the table stay at least as far apart as the lines of a long value. The sizes of the fonts and the other line spacings do not change. The logo is the word mark of the PHT in the red of the PHT (RGB 238/17/23). |
 
 The thesis and the concept paper of a version also differ in three defaults:
 the type of the work (`Bachelorarbeit` or `Konzeptpapier`), `kapitelumbruch`
@@ -108,7 +108,9 @@ for theses (`Abschlussarbeit_Vorlage_V4_1.docx`).
 
 | File | Download | Accessed | Used for |
 | --- | --- | --- | --- |
-| "Vorlage Abschlussarbeit", the Word template for theses | <https://cms.ph-tirol.ac.at/documents/Abschlussarbeit_Vorlage.docx> | 2026-10-30 | the look `vorlage` of `thesis-v2/`, `thesis-v3/` and `thesis-v4/` |
+| "Vorlage Abschlussarbeit", the Word template for theses | <https://cms.ph-tirol.ac.at/documents/Abschlussarbeit_Vorlage.docx> | 2026-10-30 | the look `vorlage` of `thesis-v2/`, `thesis-v3/` and `thesis-v4/`, and the text of the "Eidesstattliche Erklärung" in `document.md` of all thesis layouts |
+| "Corporate Design" of the PHT, the page with the logos and the colors | <https://ph-tirol.ac.at/corporate-design-pht/> | 2026-10-30 | the red of the PHT, RGB 238/17/23 (`#EE1117`, HKS 13), as in the logo of the web site |
+| "Wortmarke" of the PHT (`PHT_wortmarke.zip`), from the page "Corporate Design" | <https://cms.ph-tirol.ac.at/documents/PHT_wortmarke.zip> | 2026-10-30 | `images/pht-logo.png` of `thesis-v4/`, made from `PHT_wortmarke_rgb.pdf` |
 | "Zitationsrichtlinien für Abschlussarbeiten" (Zitation nach APA 7), version 2.0 | <https://cms.ph-tirol.ac.at/documents/APA7-V2_0.pdf> | 2026-10-30 | `pht-apa7.csl` |
 | "Vorlage für Konzeptpapier – Sekundarpädagogik", the Word template of the concept paper | <https://cms.ph-tirol.ac.at/documents/bac_konzeptpapierBA_SEK_2022.doc> | 2026-10-30 | the look `vorlage` of `concept-v2/`, the chapter headings of `document.md` of `concept-v1/` and `concept-v2/`, and the heading of their reference list |
 | "Vorlage für Konzeptpapier – Primarpädagogik" | <https://cms.ph-tirol.ac.at/documents/konzeptpapierBA.PRIMAR.doc> | 2026-10-30 | not used: a concept paper of the primary level starts from this template instead |
@@ -161,4 +163,6 @@ are listed here when a layout holds them:
   Word shows for the concept template.
 - `images/pht-logo.png` in each layout: the logo of the Pädagogische
   Hochschule Tirol. It is not under CC BY-SA 4.0; the PHT holds its rights.
-  It is here only for the cover pages of works at the PHT.
+  It is here only for the cover pages of works at the PHT. In `thesis-v4/` it
+  is the word mark of the page "Corporate Design" in the red of the PHT; the
+  other layouts have the logo of the Word template, whose red is darker.

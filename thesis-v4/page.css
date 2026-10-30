@@ -10,7 +10,8 @@ The pages of the thesis layout of the PHT. The parameter `variante` of layout.js
 - A4, margins 30 mm at the top, 25 mm on the right, 25 mm at the bottom and 35 mm on the left;
 - Liberation Sans, a free font with the metrics of Arial, the font of the template, from fonts/: text 12 pt, line
   spacing 1.5, justified, 6 pt before and after a paragraph;
-- the cover page of the template with the logo, the type, the title and the table of the facts; in version 4 the title
+- the cover page of the template with the logo, the type, the title and the table of the facts; in version 4 the logo
+  is the word mark of the PHT in the red of the PHT (RGB 238/17/23, from its page "Corporate Design"), the title
   and the subtitle have a single line spacing instead of 1.5 with the line in the middle between them, the date stays
   at its place, and all spaces from the logo to the date shrink by the same factor when the title, the subtitle or a
   value has more than one line;

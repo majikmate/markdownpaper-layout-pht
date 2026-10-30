@@ -1,9 +1,10 @@
 # Eidesstattliche Erklärung
 
-Ich erkläre an Eides statt, dass ich die vorliegende Arbeit selbstständig
-verfasst, andere als die angegebenen Quellen und Hilfsmittel nicht benutzt und
-die den benutzten Quellen wörtlich oder inhaltlich entnommenen Stellen als
-solche kenntlich gemacht habe.
+Ich, Vorname Nachname, erkläre eidesstattlich, dass ich die Arbeit selbständig
+angefertigt habe. Es wurden keine anderen als die angegebenen Hilfsmittel
+benutzt. Die aus fremden Quellen direkt oder indirekt übernommenen
+Formulierungen und Gedanken sind als solche kenntlich gemacht. Diese
+schriftliche Arbeit wurde noch an keiner Stelle vorgelegt.
 
 # Abstract
 
