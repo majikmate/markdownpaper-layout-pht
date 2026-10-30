@@ -714,9 +714,10 @@ h1.section-apx + h2.appendix {
   }
 }
 
-/* The cover page has no margins: the cover places each part where the template has it. */
+/* The cover page has no margins but the bottom margin of the template (25 mm): the cover places each part where the
+   template has it, and a cover that is too long goes on to the next page where Word breaks it. */
 @page vorlage-deckblatt {
-  margin: 0;
+  margin: 0 0 24.984mm 0;
 
   @bottom-left {
     content: none;
@@ -771,7 +772,7 @@ main.paper-text[data-field-variante="vorlage"] > .paper-appendix {
   position: relative;
   box-sizing: border-box;
   width: 210mm;
-  height: 296mm;
+  height: auto;
   min-height: 0;
   padding: 65.017mm 24.985mm 0 35.019mm;
   color: #000;
@@ -870,10 +871,15 @@ main.paper-text[data-field-variante="vorlage"] > .paper-appendix {
   vertical-align: baseline;
 }
 
-/* The tab of the template at 3119 twips. */
+/* The tab of the template at 3119 twips. A long value goes on after the tab and wraps to the left margin, as the text
+   after a tab in Word. */
 .paper-template-cover[data-field-variante="vorlage"] table.pht-meta td.pht-key {
   width: 55.022mm;
   font-weight: bold;
+}
+
+.paper-template-cover[data-field-variante="vorlage"] table.pht-meta td:not(.pht-key) {
+  display: inline;
 }
 
 /* An empty paragraph of 1.5 lines lies between the programme and the date. */
