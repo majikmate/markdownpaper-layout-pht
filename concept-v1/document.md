@@ -30,7 +30,7 @@ Schreiben Sie jeden Absatz in eine Zeile; eine leere Zeile trennt zwei Absätze.
 
 Was ist der fachliche Ausgangspunkt Ihrer Überlegungen? Wie wird das Thema in der von Ihnen bisher gesichteten Literatur dargestellt? Diese Ausführungen untermauern Sie mit drei bis fünf relevanten Literaturquellen.
 
-Ein Zitat ist ein Link auf die ID einer Quelle, mit der Stelle in der Quelle als Titel des Links: Feedback wirkt stark auf das Lernen ([Hattie & Timperley, 2007, S. 81](#hattie2007 "page 81")). Die Daten der Quellen stehen in einem Kommentar am Ende der Datei. Schreiben Sie sie nicht selbst: `npx -y @nimblescape/markdownpaper source paper/paper.md` mit der DOI der Quelle holt sie von doi.org. Den Text der Zitate und das Literaturverzeichnis in Kapitel 5 schreibt der Formatierer beim Speichern.
+Ein Zitat ist ein Link auf die ID einer Quelle, mit der Stelle in der Quelle als Titel des Links: Feedback wirkt stark auf das Lernen ([Hattie & Timperley, 2007, S. 81](#hattie2007 "page 81")). Die Daten der Quellen stehen in einem Kommentar am Ende der Datei. Schreiben Sie sie nicht selbst: Ein KI-Agent holt sie mit `npx -y @nimblescape/markdownpaper source paper/paper.md` und der DOI der Quelle von doi.org. Den Text der Zitate und das Literaturverzeichnis in Kapitel 5 schreibt der Formatierer beim Speichern.
 
 # Forschungsfrage(n) und Forschungsskizze
 

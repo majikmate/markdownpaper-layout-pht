@@ -226,7 +226,7 @@ Die Zitationsrichtlinien für Abschlussarbeiten sind auf der Website der PHT abz
 
 ## Quellen sammeln
 
-Die Daten der Quellen stehen in einem Kommentar am Ende der Datei, den die Seiten und GitHub nicht zeigen. Jede Zeile ist eine Quelle mit ihrer ID, zum Beispiel `hattie2007`. Schreiben Sie diese Daten nicht selbst: Der Befehl `markdownpaper source` holt sie aus doi.org, aus den Katalogen der Bibliotheken, aus PubMed, aus arXiv oder von einer Webseite:
+Die Daten der Quellen stehen in einem Kommentar am Ende der Datei, den die Seiten und GitHub nicht zeigen. Jede Zeile ist eine Quelle mit ihrer ID, zum Beispiel `hattie2007`. Schreiben Sie diese Daten nicht selbst: Ein KI-Agent fügt eine Quelle mit dem Befehl `markdownpaper source` hinzu, der ihre Daten aus doi.org, aus den Katalogen der Bibliotheken, aus PubMed, aus arXiv oder von einer Webseite holt:
 
 ```sh
 npx -y @nimblescape/markdownpaper source paper/paper.md 10.3102/003465430298487
