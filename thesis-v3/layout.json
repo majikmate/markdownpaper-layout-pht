@@ -1,0 +1,89 @@
+{
+  "$schema": "https://raw.githubusercontent.com/nimblescape/markdownpaper-vscode/main/schemas/layout.schema.json",
+  "format": "nimblescape-layout 1.0.0",
+  "instructions": "npx -y @nimblescape/markdownpaper instructions layout",
+  "name": "PHT Abschlussarbeit v3",
+  "language": "de-AT",
+  "citationStyle": "pht-apa7.csl",
+  "stylesheets": ["page.css"],
+  "before": ["cover.html"],
+  "after": [],
+  "document": "document.md",
+  "preview": "document.pdf",
+  "fields": {
+    "title": {
+      "description": "Der Titel der Arbeit, groß auf dem Deckblatt.",
+      "required": true
+    },
+    "subtitle": {
+      "description": "Der Untertitel unter dem Titel; weglassen für keinen Untertitel."
+    },
+    "type": {
+      "description": "Die Art der Arbeit über dem Titel und im Namen der PDF-Datei, eine der Arten der Auswahlliste der Word-Vorlage.",
+      "default": "Bachelorarbeit",
+      "values": ["Seminararbeit", "Abschlussarbeit", "Bachelorarbeit", "Masterarbeit"]
+    },
+    "author": {
+      "description": "Vorname und Nachname der Verfasserin oder des Verfassers, auf dem Deckblatt und in der Fußzeile jeder Seite.",
+      "required": true
+    },
+    "grad": {
+      "description": "Der angestrebte akademische Grad, zum Beispiel Bachelor of Education (BEd) oder Master of Education (MEd).",
+      "required": true
+    },
+    "betreuerin": {
+      "description": "Die Betreuerin oder der Betreuer mit Titel, zum Beispiel Dr. Vorname Nachname.",
+      "required": true
+    },
+    "matrikelnummer": {
+      "description": "Die Matrikelnummer, auf dem Deckblatt und im Namen der PDF-Datei.",
+      "required": true
+    },
+    "studium": {
+      "description": "Das Studium, zum Beispiel Lehramt Berufsschule.",
+      "required": true
+    },
+    "lehrveranstaltung": {
+      "description": "Die Lehrveranstaltung mit ihrer Nummer, zum Beispiel 724.BF1E00B BA Bachelorarbeit; im Namen der PDF-Datei."
+    },
+    "date": {
+      "description": "Das Datum der Abgabe, wie es auf dem Deckblatt steht, zum Beispiel 1. Juni 2026.",
+      "required": true
+    },
+    "kapitelumbruch": {
+      "description": "ja: jedes Kapitel (#) beginnt auf einer neuen Seite; nein: ein Kapitel folgt dem Text davor, mit Abstand.",
+      "default": "ja",
+      "values": ["ja", "nein"]
+    },
+    "variante": {
+      "description": "Das Aussehen der Seiten: vorlage wie die Word-Vorlage für Abschlussarbeiten der PHT (Arial 12 pt, Seitenzahl ab dem ersten Kapitel, Anhang mit I, II, …); klassisch wie frühere Arbeiten (Times New Roman 12 pt, unterer Rand 22 mm).",
+      "default": "vorlage",
+      "values": ["vorlage", "klassisch"]
+    }
+  },
+  "terms": {
+    "BIB": [
+      "Literatur/Quellen/Referenzen",
+      "Literaturverzeichnis",
+      "Literatur",
+      "Quellenverzeichnis",
+      "Quellen",
+      "Bibliographie",
+      "Bibliografie"
+    ]
+  },
+  "headings": {
+    "numbered": true,
+    "depth": 3,
+    "numberedSections": ["BIB", "LOF", "LOT", "LOL"]
+  },
+  "contents": {
+    "depth": 3,
+    "front": false
+  },
+  "hyphenate": true,
+  "references": {
+    "hyphenate": true
+  },
+  "pdfName": "{{matrikelnummer}}_{{author}}_{{lehrveranstaltung}}_{{type}}"
+}

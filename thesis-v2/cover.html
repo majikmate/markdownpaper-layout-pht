@@ -4,24 +4,31 @@ Licensed under the Creative Commons Attribution-ShareAlike 4.0 International Lic
 root for details.
 
 The cover page of the PHT: the logo, the type of the work, the title and the subtitle, the author, the degree, the
-supervisor, the student ID, the programme and the date, from the fields of the front matter.
+supervisor, the student ID, the programme and the date, from the fields of the front matter. The empty elements
+"pht-gap" are the large spaces of the variant "vorlage", which shrink when the cover is too long for one page.
 -->
 <section class="pht-cover">
   <div class="pht-logo"><img src="images/pht-logo.png" alt="Pädagogische Hochschule Tirol"></div>
+  <div class="pht-gap"></div>
   {{#type}}<p class="pht-type">{{type}}</p>{{/type}}
+  <div class="pht-gap"></div>
   <div class="pht-title-block">
     <p class="pht-title">{{title}}</p>
     <div class="pht-title-rule"></div>
     {{#subtitle}}<p class="pht-subtitle">{{subtitle}}</p>{{/subtitle}}
   </div>
+  <div class="pht-gap"></div>
   <p class="pht-label">Verfasser:in</p>
   <p class="pht-author">{{author}}</p>
+  <div class="pht-gap"></div>
   <p class="pht-label">angestrebter akademischer Grad</p>
   <p class="pht-degree">{{grad}}</p>
+  <div class="pht-gap"></div>
   <table class="pht-meta">
     <tr><td class="pht-key">Betreuer:in:</td><td>{{betreuerin}}</td></tr>
     <tr><td class="pht-key">Matrikelnummer:</td><td>{{matrikelnummer}}</td></tr>
     <tr><td class="pht-key">Studium:</td><td>{{studium}}</td></tr>
   </table>
+  <div class="pht-gap pht-gap-date"></div>
   <p class="pht-date">{{date}}</p>
 </section>

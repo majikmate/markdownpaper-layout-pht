@@ -689,6 +689,8 @@ main.paper-text[data-field-variante="vorlage"] {
    Sans) below its top, half of the ascent minus the descent of the font. */
 .pht-concept-cover {
   position: relative;
+  /* The margin of the first table stays inside the cover. */
+  display: flow-root;
   width: 210mm;
   height: 296mm;
   font-family: "PHT Carlito", Carlito, Calibri, sans-serif;
@@ -747,29 +749,35 @@ table.pht-concept-table {
   line-height: 0;
 }
 
+/* The tables are in the flow of the cover, so that a row with a long value grows and moves the parts below it, as in
+   Word: the first table starts 81.28 mm below the top, the second 13.125 mm below the first. */
+.pht-concept-cover > table.pht-concept-table {
+  position: relative;
+}
+
 table.pht-concept-student {
-  top: 81.28mm;
+  margin-top: 81.28mm;
 }
 
 table.pht-concept-supervisor {
-  top: 147.066mm;
+  margin-top: 13.125mm;
 }
 
 table.pht-concept-table tr {
   position: relative;
   box-sizing: border-box;
-  height: 13.123mm;
+  min-height: 13.123mm;
   border: 0.169mm solid #000;
   border-bottom: none;
 }
 
 table.pht-concept-table tr:last-child {
-  height: 13.292mm;
+  min-height: 13.292mm;
   border-bottom: 0.169mm solid #000;
 }
 
 table.pht-concept-supervisor tr:last-child {
-  height: 13.123mm;
+  min-height: 13.123mm;
 }
 
 table.pht-concept-table td {
@@ -778,8 +786,10 @@ table.pht-concept-table td {
   box-sizing: border-box;
 }
 
+/* The line between the columns spans the whole row. */
 table.pht-concept-table td.pht-concept-key {
   left: 0;
+  bottom: 0;
   width: 42.418mm;
   padding: calc(9.911mm - 0.3418em) 0 0 1.865mm;
   border-right: 0.169mm solid #000;
@@ -787,10 +797,13 @@ table.pht-concept-table td.pht-concept-key {
   color: #084557;
 }
 
+/* A long value wraps into lines of single line spacing; the first line stays where it is with one line, and the row
+   grows by the lines below it. */
 table.pht-concept-table td.pht-concept-value {
-  left: 42.418mm;
-  right: 0;
-  padding: calc(9.991mm - 0.3467em) 0 0 1.866mm;
+  position: relative;
+  margin-left: 42.418mm;
+  padding: calc(9.991mm - 0.3467em - 0.574951em + 0.12mm) 0 0 1.866mm;
+  line-height: 1.149902;
   font-family: "PHT Sans", "Liberation Sans", Arial, sans-serif;
   font-size: 12pt;
   font-weight: bold;
@@ -801,7 +814,7 @@ table.pht-concept-supervisor td.pht-concept-key {
 }
 
 table.pht-concept-supervisor td.pht-concept-value {
-  padding-top: calc(9.995mm - 0.3467em);
+  padding-top: calc(9.995mm - 0.3467em - 0.574951em + 0.12mm);
 }
 
 p.pht-concept-footer {
