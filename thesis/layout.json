@@ -1,0 +1,26 @@
+{
+  "format": "nimblescape-layout 1.0.0",
+  "instructions": "npx -y @nimblescape/markdownpaper instructions layout",
+  "name": "PHT Abschlussarbeit",
+  "language": "de-AT",
+  "citationStyle": "pht-apa7.csl",
+  "stylesheets": ["page.css"],
+  "fields": {
+    "title": {
+      "description": "Der Titel der Arbeit.",
+      "required": true
+    },
+    "author": {
+      "description": "Der Name der Autorin oder des Autors."
+    }
+  },
+  "headings": {
+    "numbered": true,
+    "depth": 3
+  },
+  "contents": {
+    "depth": 3
+  },
+  "hyphenate": true,
+  "pdfName": "{{file}}"
+}
