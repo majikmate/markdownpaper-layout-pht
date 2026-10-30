@@ -5,13 +5,51 @@
   "language": "de-AT",
   "citationStyle": "pht-apa7.csl",
   "stylesheets": ["page.css"],
+  "before": ["cover.html"],
+  "after": [],
+  "document": "document.md",
   "fields": {
     "title": {
-      "description": "Der Titel der Arbeit.",
+      "description": "Der Titel der Arbeit, groß auf dem Deckblatt.",
       "required": true
     },
+    "subtitle": {
+      "description": "Der Untertitel unter dem Titel; weglassen für keinen Untertitel."
+    },
+    "type": {
+      "description": "Die Art der Arbeit über dem Titel und im Namen der PDF-Datei, zum Beispiel Bachelorarbeit, Masterarbeit oder Seminararbeit.",
+      "default": "Bachelorarbeit"
+    },
     "author": {
-      "description": "Der Name der Autorin oder des Autors."
+      "description": "Vorname und Nachname der Verfasserin oder des Verfassers, auf dem Deckblatt und in der Fußzeile jeder Seite.",
+      "required": true
+    },
+    "grad": {
+      "description": "Der angestrebte akademische Grad, zum Beispiel Bachelor of Education (BEd) oder Master of Education (MEd).",
+      "required": true
+    },
+    "betreuerin": {
+      "description": "Die Betreuerin oder der Betreuer mit Titel, zum Beispiel Dr. Vorname Nachname.",
+      "required": true
+    },
+    "matrikelnummer": {
+      "description": "Die Matrikelnummer, auf dem Deckblatt und im Namen der PDF-Datei.",
+      "required": true
+    },
+    "studium": {
+      "description": "Das Studium, zum Beispiel Lehramt Berufsschule.",
+      "required": true
+    },
+    "lehrveranstaltung": {
+      "description": "Die Lehrveranstaltung mit ihrer Nummer, zum Beispiel 724.BF1E00B BA Bachelorarbeit; im Namen der PDF-Datei."
+    },
+    "date": {
+      "description": "Das Datum der Abgabe, wie es auf dem Deckblatt steht, zum Beispiel 1. Juni 2026.",
+      "required": true
+    },
+    "kapitelumbruch": {
+      "description": "ja: jedes Kapitel (#) beginnt auf einer neuen Seite; nein: ein Kapitel folgt dem Text davor, mit Abstand.",
+      "default": "ja"
     }
   },
   "headings": {
@@ -22,5 +60,5 @@
     "depth": 3
   },
   "hyphenate": true,
-  "pdfName": "{{file}}"
+  "pdfName": "{{matrikelnummer}}_{{author}}_{{lehrveranstaltung}}_{{type}}"
 }
