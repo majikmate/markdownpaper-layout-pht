@@ -40,6 +40,26 @@ repository of layouts for Markdown Paper; the page
 <https://github.com/topics/nimblescape-markdownpaper-layout> lists all public
 ones.
 
+## Sources
+
+The layouts were made on 2026-10-30 from these files of the PHT. The look of
+the pages was ported from the skill `markdown-to-paper` of the repository
+`scalarion/transcribe`, which was made from the same Word template.
+
+| File | Download | Used for |
+| --- | --- | --- |
+| `Abschlussarbeit_Vorlage_V4_1.docx`, the Word template for theses, version 4.1 | the page "Bachelorarbeit" of the PHT, <https://ph-tirol.ac.at/bachelorarbeit/> | the cover page, the margins, the headings, the footnotes and the table of contents of `thesis/` and `concept/` |
+| `APA7-V2_0.pdf`, "Zitationsrichtlinien für Abschlussarbeiten an der PHT, Zitation nach APA 7", version 2.0 | the page "Bachelorarbeit" of the PHT, <https://ph-tirol.ac.at/bachelorarbeit/> | `pht-apa7.csl` |
+| The Word template of the concept paper (Konzeptpapier) of the bachelor study | the service portal of the PHT, <https://service.ph-tirol.at>, after the sign-in with the Office 365 account, as the guide "BA-Antrag Schritt für Schritt" of the PHT says | the chapter headings of `concept/document.md` and the heading of its reference list |
+
+The layouts differ from the Word template in two points, which they took over
+from the skill:
+
+- the font is Liberation Serif, with the metrics of Times New Roman; the
+  template uses Arial: text 12 pt, headings 16 pt, 14 pt and 12 pt;
+- the bottom margin is 22 mm, with the footer inside it; the template has a
+  bottom margin of 25 mm and the footer 12.5 mm from the edge of the page.
+
 ## The citation style of the PHT
 
 [`thesis/pht-apa7.csl`](thesis/pht-apa7.csl) (and its copy in `concept/`) is the citation style of the
