@@ -10,9 +10,9 @@ The pages of the thesis layout of the PHT. The parameter `variante` of layout.js
 - A4, margins 30 mm at the top, 25 mm on the right, 25 mm at the bottom and 35 mm on the left;
 - Liberation Sans, a free font with the metrics of Arial, the font of the template, from fonts/: text 12 pt, line
   spacing 1.5, justified, 6 pt before and after a paragraph;
-- the cover page of the template with the logo, the type, the title and the table of the facts; in version 4 the date
-  stays at its place, and all spaces from the subtitle to the date shrink by the same factor when the title, the
-  subtitle or a value has more than one line;
+- the cover page of the template with the logo, the type, the title and the table of the facts; in version 4 the title
+  and the subtitle have a line spacing of 1.2 instead of 1.5, the date stays at its place, and all spaces from the
+  subtitle to the date shrink by the same factor when the title, the subtitle or a value has more than one line;
 - no footer on the pages before the first chapter; the footer below a line, the author on the left, "Seite N" on the
   right, from 1 at the first chapter; the appendix part with its own numbers, "Anhang I", "Anhang II", …;
 - the headings 16, 14 and 12 pt bold with the hanging indents of the template; a title without a number, such as
@@ -772,8 +772,8 @@ main.paper-text[data-field-variante="vorlage"] > .paper-appendix {
 /* The cover page of the template: the logo in the header, 19.85 mm below the top and centered over the text; below the
    top margin of 65 mm the type of the work (36 pt), the title (20 pt) with a line below it, the subtitle (14 pt), the
    author (18 pt), the degree (22 pt), the supervisor, the student ID and the programme with a tab at 55 mm, and the
-   date, each paragraph with the spacing of the template. The cover is as high as the cover of the template with one
-   line for each of them, so the date stays at its place: when the title, the subtitle or a value has more lines, all
+   date, each paragraph with the spacing of the template, except the line spacing of 1.2 instead of 1.5 of the title
+   and the subtitle. The cover is as high as this cover with one line for each text, so the date stays at its place: when the title, the subtitle or a value has more lines, all
    spaces from the subtitle to the date shrink by the same factor. The elements "pht-gap" are these spaces; each holds
    the space of the template before the next text and the added space of the line spacing below the text before it,
    which the negative bottom margin of that text gives to the gap. The two spaces above the title keep their size. */
@@ -784,10 +784,11 @@ main.paper-text[data-field-variante="vorlage"] > .paper-appendix {
   box-sizing: border-box;
   width: 210mm;
   /* The top margin, the two spaces above the title, the space below the title and above the subtitle, the lines of the
-     type, the title, the subtitle, the labels, the author, the degree, the three rows and the date at a line spacing
-     of 1.5, the spaces from the subtitle to the date, and half a pixel, so that the rounding of the browser does not
-     shrink the spaces of a cover with one line for each text. */
-  height: calc(65.017mm + 2 * 36pt + 1pt + 0.5pt + 6pt + 1.724853 * (36pt + 20pt + 14pt + 2 * 12pt + 18pt + 22pt + 3 * 12pt + 12pt)
+     title and the subtitle at a line spacing of 1.2, the lines of the type, the labels, the author, the degree, the
+     three rows and the date at a line spacing of 1.5, the spaces from the subtitle to the date, and half a pixel, so
+     that the rounding of the browser does not shrink the spaces of a cover with one line for each text. */
+  height: calc(65.017mm + 2 * 36pt + 1pt + 0.5pt + 6pt + 1.379882 * (20pt + 14pt)
+    + 1.724853 * (36pt + 2 * 12pt + 18pt + 22pt + 3 * 12pt + 12pt)
     + 36pt + 2 * 12pt + 36pt + 36pt + 2 * 6pt + 32.698pt + 0.375pt);
   min-height: 0;
   padding: 65.017mm 24.985mm 0 35.019mm;
@@ -804,9 +805,9 @@ main.paper-text[data-field-variante="vorlage"] > .paper-appendix {
   flex: 0 0 36pt;
 }
 
-/* The added space of a line spacing of 1.5 is 0.574951 of the size of the font. */
+/* The added space of a line spacing of 1.5 is 0.574951 of the size of the font, of a line spacing of 1.2 0.229980. */
 .paper-template-cover[data-field-variante="vorlage"] .pht-gap-title {
-  flex: 0 1 calc(0.574951 * 14pt + 36pt);
+  flex: 0 1 calc(0.229980 * 14pt + 36pt);
 }
 
 /* Without a subtitle, the space begins at the line below the title. Paged.js rewrites a selector with "+" and loses
@@ -844,12 +845,15 @@ main.paper-text[data-field-variante="vorlage"] > .paper-appendix {
 }
 
 /* The texts from the subtitle to the programme give the added space of their last line to the gap below them. */
-.paper-template-cover[data-field-variante="vorlage"] .pht-title-block > p.pht-subtitle,
 .paper-template-cover[data-field-variante="vorlage"] .pht-cover > p.pht-label,
 .paper-template-cover[data-field-variante="vorlage"] .pht-cover > p.pht-author,
 .paper-template-cover[data-field-variante="vorlage"] .pht-cover > p.pht-degree,
 .paper-template-cover[data-field-variante="vorlage"] table.pht-meta tr:not(.pht-gap) {
   margin-bottom: -0.574951em;
+}
+
+.paper-template-cover[data-field-variante="vorlage"] .pht-title-block > p.pht-subtitle {
+  margin-bottom: -0.229980em;
 }
 
 .paper-template-cover[data-field-variante="vorlage"] .pht-title-block:not(:has(.pht-subtitle)) .pht-title-rule {
@@ -888,6 +892,14 @@ main.paper-text[data-field-variante="vorlage"] > .paper-appendix {
 
 .paper-template-cover[data-field-variante="vorlage"] .pht-title-block {
   margin: 0;
+}
+
+/* The title and the subtitle have a line spacing of 1.2 (1.2 single lines of Arial) instead of the 1.5 of the
+   template. The text moves up by half of the added space, as in the text below. */
+.paper-template-cover[data-field-variante="vorlage"] p.pht-title,
+.paper-template-cover[data-field-variante="vorlage"] p.pht-subtitle {
+  top: calc(-0.098633em + var(--pht-half-pixel));
+  line-height: 1.379882;
 }
 
 .paper-template-cover[data-field-variante="vorlage"] p.pht-title {
