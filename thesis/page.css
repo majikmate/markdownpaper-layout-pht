@@ -605,8 +605,9 @@ nav .appendix-label {
   display: inline;
 }
 
-/* The reference list (PHT APA 7): hanging indent of 1.25 cm, left-aligned. */
-.references p {
+/* The reference list (PHT APA 7): hanging indent of 1.25 cm, left-aligned. The entries are the paragraphs directly in
+   the section; a hint box in the section keeps its own form. */
+.references > p {
   text-align: left;
   padding-left: 12.5mm;
   text-indent: -12.5mm;
