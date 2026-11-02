@@ -75,12 +75,17 @@ The browser puts each line on a whole pixel (0.26 mm), so a line can be up to
 - A Markdown table has no widths of its columns, so the browser gives each
   column its width, and the columns of a table can differ from Word.
 
-A document names its layout in the front matter, for example
-`layout: thesis`. Today Markdown Paper reads a layout from the folder
-`layouts/` of the repository of the document, so a document uses a copy of the
-layout folder there, for example `layouts/thesis/`; `markdownpaper create
---layout github:majikmate/markdownpaper-layout-pht/thesis` makes this copy.
-Until the first release this repository has no release tag.
+A document names its layout in the front matter as a reference to this
+repository, with a branch, a tag or a commit after `@`, for example
+`layout: majikmate/markdownpaper-layout-pht/thesis@main`. The command `mp` of
+Markdown Paper clones the repository into `.markdownpaper/repos/` of the
+project, a folder that Git ignores: `mp create --layout
+majikmate/markdownpaper-layout-pht/thesis@main` creates a project with the
+layout, and `mp get` clones it for a project that names it, for example after
+a clone of the project or in CI. A branch follows the changes of the layout;
+a tag or a commit keeps the pages as they are. A project that changes the
+layout copies the layout folder into `layouts/` of the project. Until the
+first release this repository has no release tag.
 
 The GitHub topic `nimblescape-markdownpaper-layout` marks this repository as a
 repository of layouts for Markdown Paper; the page
@@ -92,7 +97,7 @@ ones.
 Each layout folder holds its empty paper document, `document.md`, and the PDF
 of it, `document.pdf`, which shows the pages of the layout with example texts
 before a person chooses it (the fields `document` and `preview` of
-`layout.json`). `markdownpaper create` and the command "New Project" of VS
+`layout.json`). `mp create` and the command "New Project" of VS
 Code copy the empty paper document into `paper/paper.md` of a new project,
 with the files that it links to.
 

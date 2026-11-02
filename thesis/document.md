@@ -79,11 +79,11 @@ Das Deckblatt, die Eidesstattliche Erklärung, das Abstract und das Vorwort habe
 
 ## Die Ordner des Projekts
 
-Ein Projekt ist ein Ordner mit der Arbeit und allem, was sie braucht. Der Befehl `npx -y @nimblescape/markdownpaper create` in der Kommandozeile oder „Markdown Paper: New Project“ in VS Code legt ein neues Projekt an. Beide fragen nach dem Layout und bieten die Layouts auf GitHub zur Auswahl an. [Abbildung 1](#fig-ordner-projekts) zeigt die Ordner.
+Ein Projekt ist ein Ordner mit der Arbeit und allem, was sie braucht. Der Befehl `npx -y @nimblescape/markdownpaper create` in der Kommandozeile oder „Markdown Paper: New Project“ in VS Code legt ein neues Projekt an. Beide fragen nach dem Layout und bieten die Layouts auf GitHub zur Auswahl an. Das Layout bleibt in seinem Repository auf GitHub: Das Feld `layout` nennt es, zum Beispiel `majikmate/markdownpaper-layout-pht/thesis@main`, und der Befehl `mp get` im Terminal von VS Code lädt es in den Ordner `.markdownpaper/repos/`, den Git nicht speichert. [Abbildung 1](#fig-ordner-projekts) zeigt die Ordner.
 
 Abbildung 1: Die Ordner eines Projekts <a id="fig-ordner-projekts"></a>
 
-![Die Ordner eines Projekts: AGENTS.md, paper/paper.md, images, code, bib, inbox und layouts](images/projekt-ordner.svg)
+![Die Ordner eines Projekts: AGENTS.md, paper/paper.md, images, code, bib, inbox und .markdownpaper/repos](images/projekt-ordner.svg)
 
 Öffnen Sie den Ordner des Projekts in VS Code („Datei“, „Ordner öffnen“) und dann die Datei `paper/paper.md`.
 
@@ -269,7 +269,7 @@ Ein KI-Agent, zum Beispiel Claude Code oder GitHub Copilot, kann im Projekt Quel
 ```sh
 npx -y @nimblescape/markdownpaper instructions document
 npx -y @nimblescape/markdownpaper check paper/paper.md
-npx -y @nimblescape/markdownpaper pdf paper/paper.md
+npx -y @nimblescape/markdownpaper build paper/paper.md
 ```
 
 Ein Agent darf die Daten einer Quelle nie aus seinem Gedächtnis schreiben, sondern nur aus doi.org, einem Katalog oder der Quelle selbst. Tragen Sie jeden Einsatz eines Agenten in die Dokumentationstabelle ein.
@@ -305,7 +305,7 @@ VS Code prüft die Datei beim Schreiben und unterstreicht Probleme gelb: ein feh
 Klicken Sie oben rechts im Editor auf das Menü „Ausführen“ und dann auf „Export PDF“, oder klicken Sie im Explorer mit der rechten Maustaste auf die Datei. Das PDF liegt danach neben der Datei. In der Kommandozeile macht das der Befehl:
 
 ```sh
-npx -y @nimblescape/markdownpaper pdf paper/paper.md
+npx -y @nimblescape/markdownpaper build paper/paper.md
 ```
 
 # Sprache und Barrierefreiheit
