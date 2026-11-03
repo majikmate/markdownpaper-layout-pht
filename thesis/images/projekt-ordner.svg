@@ -9,7 +9,7 @@
     <text x="48" y="168">code/</text>
     <text x="48" y="200">bib/</text>
     <text x="48" y="232">inbox/</text>
-    <text x="48" y="264">layouts/thesis/</text>
+    <text x="48" y="264">.markdownpaper/repos/</text>
   </g>
   <g stroke="#8a96a8" stroke-width="1.5" fill="none">
     <path d="M32 48 V259 M32 67 H42 M32 99 H42 M32 131 H42 M32 163 H42 M32 195 H42 M32 227 H42 M32 259 H42"/>
@@ -21,6 +21,6 @@
     <text x="250" y="168">der Quelltext der Listings</text>
     <text x="250" y="200">die Dateien der Quellen, zum Beispiel PDF</text>
     <text x="250" y="232">neue Quellen für den KI-Agenten</text>
-    <text x="250" y="264">das Layout: Deckblatt, Seiten, Zitierstil</text>
+    <text x="250" y="264">das Layout von GitHub, geholt mit mp get</text>
   </g>
 </svg>
